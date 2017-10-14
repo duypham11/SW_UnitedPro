@@ -1,6 +1,8 @@
 package org.unitedpro.mumsched.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,7 +33,14 @@ public class Section {
     private Course course;
 
     @OneToMany
-    private List<Faculty> faculty;
+    private List<Faculty> facultys;
+
+	@OneToMany(mappedBy = "section")
+	private Set<Student_Section> student_Sections = new HashSet<Student_Section>(0);	
+	
+	public Set<Student_Section> getStudents() {
+		return this.student_Sections;
+	}
 
     @ManyToOne
     private Block block;

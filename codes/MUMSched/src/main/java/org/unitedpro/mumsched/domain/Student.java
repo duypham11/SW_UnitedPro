@@ -4,16 +4,12 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -31,7 +27,7 @@ public class Student {
 	private long student_id;
 	
 	@NotEmpty
-	@Column(name = "firstName")
+	@Column(name = "firstName1")
 	private String firstName;
 	@NotEmpty
 	@Column(name = "lastName")
@@ -46,11 +42,10 @@ public class Student {
 	
 
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "Student_Section", joinColumns = { @JoinColumn(name = "student_id") }, inverseJoinColumns = { @JoinColumn(name = "section_id") })
-	private Set<Section> section = new HashSet<Section>(0);	
+	@OneToMany(mappedBy = "student")
+	private Set<Student_Section> student_Sections = new HashSet<Student_Section>(0);	
 	
-	public Set<Section> getSection() {
-		return this.section;
+	public Set<Student_Section> getSections() {
+		return this.student_Sections;
 	}
 }
