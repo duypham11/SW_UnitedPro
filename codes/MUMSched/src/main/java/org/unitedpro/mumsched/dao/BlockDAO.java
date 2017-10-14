@@ -1,0 +1,13 @@
+package org.unitedpro.mumsched.dao;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.unitedpro.mumsched.domain.Entry;
+
+public interface BlockDAO {
+	@Query("select b from Block b where b.blockName = :blockName")
+	public Entry findBlockByName(@Param("blockName") String blockName);
+	
+	@Query("select b from Block b where b.block_id = :blockId")
+	public Entry findBlockById(@Param("blockId") long blockId);
+}

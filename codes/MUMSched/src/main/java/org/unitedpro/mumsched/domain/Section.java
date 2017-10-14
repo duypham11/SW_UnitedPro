@@ -26,7 +26,7 @@ public class Section {
 	private long section_id;
 	@NotEmpty
 	@Column(name = "SectionName")
-	private String SectionName;
+	private String sectionName;
 	
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "course_id")

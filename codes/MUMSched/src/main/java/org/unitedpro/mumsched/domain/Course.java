@@ -36,7 +36,7 @@ public class Course {
     private List<Course> Course;
     
 	@NotEmpty
-	@Column(name = "CourseName")
+	@Column(name = "courseName")
 	private String courseName;
 	
 	@NotEmpty

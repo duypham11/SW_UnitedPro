@@ -17,10 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Student")
-public class Student {
-	
-
-	
+public class Student {	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "student_id")

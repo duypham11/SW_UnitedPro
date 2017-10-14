@@ -8,6 +8,6 @@ import org.unitedpro.mumsched.domain.*;
 
 @Repository
 public interface StudentDAO extends  CrudRepository<Student, Long> {
-	@Query("select s from Student s where s.id= :id")
+	@Query("select s from Student s where s.student_id= :id")
 	public Student findStudentById(@Param("id") Long studentId);
 }
