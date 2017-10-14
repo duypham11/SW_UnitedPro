@@ -27,7 +27,7 @@ public class Student {
 	private long student_id;
 	
 	@NotEmpty
-	@Column(name = "firstName1")
+	@Column(name = "firstName")
 	private String firstName;
 	@NotEmpty
 	@Column(name = "lastName")
