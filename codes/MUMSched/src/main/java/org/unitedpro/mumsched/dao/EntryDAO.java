@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.unitedpro.mumsched.domain.*;
 
 public interface EntryDAO extends  CrudRepository <Entry, String>{
-	@Query("select e from Entry e where e.entryNam = :entryName")
+	@Query("select e from Entry e where e.entryName = :entryName")
 	public Entry findEntryByName(@Param("entryName") String entryName);
 	
 	@Query("select e from Entry e where e.entry_id = :entryId")

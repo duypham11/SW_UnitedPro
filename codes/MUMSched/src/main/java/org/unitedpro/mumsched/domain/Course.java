@@ -29,11 +29,11 @@ public class Course {
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "Course_Pre",
+            name = "Pre_Courses",
             joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_pre_id")
+            inverseJoinColumns = @JoinColumn(name = "pre_course_id")
     )
-    private List<Course> Course;
+    private List<Course> preCourses;
     
 	@NotEmpty
 	@Column(name = "courseName")
