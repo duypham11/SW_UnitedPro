@@ -40,4 +40,69 @@ public class Entry {
 
     @OneToMany(mappedBy = "entry")
     private List<Block> blocks;
+
+	public long getEntry_id() {
+		return entry_id;
+	}
+
+	public void setEntry_id(long entry_id) {
+		this.entry_id = entry_id;
+	}
+
+	public String getEntryName() {
+		return entryName;
+	}
+
+	public void setEntryName(String entryName) {
+		this.entryName = entryName;
+	}
+
+	public int getNoFPP() {
+		return noFPP;
+	}
+
+	public void setNoFPP(int noFPP) {
+		this.noFPP = noFPP;
+	}
+
+	public int getNoMPP() {
+		return noMPP;
+	}
+
+	public void setNoMPP(int noMPP) {
+		this.noMPP = noMPP;
+	}
+
+	public int getNoOPTFPP() {
+		return noOPTFPP;
+	}
+
+	public void setNoOPTFPP(int noOPTFPP) {
+		this.noOPTFPP = noOPTFPP;
+	}
+
+	public int getNoOPTMPP() {
+		return noOPTMPP;
+	}
+
+	public void setNoOPTMPP(int noOPTMPP) {
+		this.noOPTMPP = noOPTMPP;
+	}
+
+	public int getNoOfUSRes() {
+		return noOfUSRes;
+	}
+
+	public void setNoOfUSRes(int noOfUSRes) {
+		this.noOfUSRes = noOfUSRes;
+	}
+
+	public List<Block> getBlocks() {
+		return blocks;
+	}
+
+	public void setBlocks(List<Block> blocks) {
+		this.blocks = blocks;
+	}
+    
 }

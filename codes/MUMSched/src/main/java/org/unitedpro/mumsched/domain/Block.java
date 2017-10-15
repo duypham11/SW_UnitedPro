@@ -48,5 +48,48 @@ public class Block {
 
     @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
-    private Date endDate; 
+    private Date endDate;
+
+	public long getBlock_id() {
+		return block_id;
+	}
+
+	public void setBlock_id(long block_id) {
+		this.block_id = block_id;
+	} 
+	public String getBlockName() {
+		return blockName;
+	}
+
+	public void setBlockName(String blockName) {
+		this.blockName = blockName;
+	}
+
+	public Entry getEntry() {
+		return entry;
+	}
+
+	public void setEntry(Entry entry) {
+		this.entry = entry;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public List<Section> getSections() {
+		return sections;
+	}
 }

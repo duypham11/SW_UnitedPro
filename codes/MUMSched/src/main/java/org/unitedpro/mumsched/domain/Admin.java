@@ -30,6 +30,42 @@ public class Admin {
 	private LocalDate DOB;
 	@NotEmpty
 	@Email
-	@Column(name = "email")
+	@Column(name = "email")	
 	private String email;
+
+
+
+
+	public long getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(long admin_id) {
+		this.admin_id = admin_id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public LocalDate getDOB() {
+		return DOB;
+	}
+	public void setDOB(LocalDate dOB) {
+		DOB = dOB;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	
 }

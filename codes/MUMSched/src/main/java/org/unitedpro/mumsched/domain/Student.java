@@ -45,4 +45,53 @@ public class Student {
 	public Set<Student_Section> getSections() {
 		return this.student_Sections;
 	}
+
+	public long getStudent_id() {
+		return student_id;
+	}
+
+	public void setStudent_id(long student_id) {
+		this.student_id = student_id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public LocalDate getDOB() {
+		return DOB;
+	}
+
+	public void setDOB(LocalDate dOB) {
+		DOB = dOB;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Set<Student_Section> getStudent_Sections() {
+		return student_Sections;
+	}
+
+	public void setStudent_Sections(Set<Student_Section> student_Sections) {
+		this.student_Sections = student_Sections;
+	}
+	
 }

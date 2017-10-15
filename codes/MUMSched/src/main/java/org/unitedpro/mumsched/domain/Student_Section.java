@@ -36,9 +36,46 @@ public class Student_Section implements Serializable {
     @Column(name = "grade")
     private char grade;
     @NotEmpty
+    @Column(name = "point")
+    private Double point;
+    
+    public Double getPoint() {
+		return point;
+	}
+	public void setPoint(Double point) {
+		this.point = point;
+	}
+	@NotEmpty
     @Column(name = "isApproved")
     private boolean isApproved;
     @NotEmpty
     @Column(name = "Comments")
     private String comments;
+    
+    
+	public char getGrade() {
+		return grade;
+	}
+	public void setGrade(char grade) {
+		this.grade = grade;
+	}
+	public boolean isApproved() {
+		return isApproved;
+	}
+	public void setApproved(boolean isApproved) {
+		this.isApproved = isApproved;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public void setSection(Section section) {
+		this.section = section;
+	}
+    
 }

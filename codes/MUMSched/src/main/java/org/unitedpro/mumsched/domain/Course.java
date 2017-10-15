@@ -42,4 +42,45 @@ public class Course {
 	@NotEmpty
     @Column(name = "course_description")
     private String courseDescription;
+
+	public long getCourse_id() {
+		return course_id;
+	}
+
+	public void setCourse_id(long course_id) {
+		this.course_id = course_id;
+	}
+
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
+	}
+
+	public List<Course> getPreCourses() {
+		return preCourses;
+	}
+
+	public void setPreCourses(List<Course> preCourses) {
+		this.preCourses = preCourses;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+
+	public void setCourseDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
+	}
+	
 }
