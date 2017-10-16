@@ -24,8 +24,10 @@ public class FacultyServiceImpl implements FacultyService{
 	@Override
 	public void save(Faculty faculty) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(faculty);
 		//entityManager.flush();
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
@@ -38,20 +40,25 @@ public class FacultyServiceImpl implements FacultyService{
 	public boolean delete(Faculty faculty) {
 		// TODO Auto-generated method stub
 		try {
-	         entityManager.remove(faculty);
+			entityManager.getTransaction().begin();
+	        entityManager.remove(faculty);
+	        entityManager.getTransaction().commit();
+	        return true;
 	    } catch (Exception ex) {
 	        return false;
 	    }
-	    return true;
 	}
 
 	@Override
-	public Faculty update(Faculty faculty) {
+	public boolean update(Faculty faculty) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(faculty);
+	    	entityManager.getTransaction().begin();
+	        entityManager.merge(faculty);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 	

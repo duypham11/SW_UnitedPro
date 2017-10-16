@@ -45,12 +45,15 @@ public class SectionServiceImpl implements SectionService{
 	}
 
 	@Override
-	public Section update(Section section) {
+	public boolean update(Section section) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(section);
+	    	entityManager.getTransaction().begin();
+	        entityManager.merge(section);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 	

@@ -23,8 +23,11 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void save(Course course) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(course);
+		
 		//entityManager.flush();
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
@@ -37,7 +40,9 @@ public class CourseServiceImpl implements CourseService{
 	public boolean delete(Course course) {
 		// TODO Auto-generated method stub
 		try {
+			entityManager.getTransaction().begin();
 	         entityManager.remove(course);
+	         entityManager.getTransaction().commit();
 	    } catch (Exception ex) {
 	        return false;
 	    }
@@ -45,12 +50,15 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public Course update(Course course) {
+	public boolean update(Course course) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(course);
+	    	entityManager.getTransaction();
+	        entityManager.merge(course);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 	

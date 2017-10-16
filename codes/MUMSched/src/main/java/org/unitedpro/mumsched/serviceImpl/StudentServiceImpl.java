@@ -46,12 +46,15 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public Student update(Student student) {
+	public boolean update(Student student) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(student);
+	    	entityManager.getTransaction().begin();
+	        entityManager.merge(student);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 /*	@Autowired

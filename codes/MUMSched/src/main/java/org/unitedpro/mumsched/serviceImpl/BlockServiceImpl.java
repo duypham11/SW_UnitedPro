@@ -24,8 +24,10 @@ public class BlockServiceImpl implements BlockService{
 	@Override
 	public void save(Block block) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(block);
 		//entityManager.flush();	
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
@@ -38,7 +40,9 @@ public class BlockServiceImpl implements BlockService{
 	public boolean delete(Block block) {
 		// TODO Auto-generated method stub
 		try {
-	         entityManager.remove(block);
+			entityManager.getTransaction().begin();
+	        entityManager.remove(block);
+	        entityManager.getTransaction().commit();
 	    } catch (Exception ex) {
 	        return false;
 	    }
@@ -46,12 +50,15 @@ public class BlockServiceImpl implements BlockService{
 	}
 
 	@Override
-	public Block update(Block block) {
+	public boolean update(Block block) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(block);
+	    	entityManager.getTransaction().begin();
+	    	entityManager.merge(block);
+	    	entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 

@@ -23,28 +23,35 @@ public class StudentSectionServiceImpl implements StudentSectionService{
 	@Override
 	public void save(Student_Section studentsection) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(studentsection);
 		//entityManager.flush();	
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public boolean delete(Student_Section studentsection) {
 		// TODO Auto-generated method stub
 		try {
+			entityManager.getTransaction().begin();
 	         entityManager.remove(studentsection);
+	         entityManager.getTransaction().commit();
+	         return true;
 	    } catch (Exception ex) {
 	        return false;
 	    }
-	    return true;
 	}
 
 	@Override
-	public Student_Section update(Student_Section studentsection) {
+	public boolean update(Student_Section studentsection) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(studentsection);
+	    	entityManager.getTransaction().begin();
+	        entityManager.merge(studentsection);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 

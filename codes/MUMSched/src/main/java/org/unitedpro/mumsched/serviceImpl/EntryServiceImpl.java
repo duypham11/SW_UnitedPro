@@ -23,8 +23,10 @@ public class EntryServiceImpl implements EntryService{
 	@Override
 	public void save(Entry entry) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(entry);
 		//entityManager.flush();
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
@@ -37,7 +39,9 @@ public class EntryServiceImpl implements EntryService{
 	public boolean delete(Entry entry) {
 		// TODO Auto-generated method stub
 		try {
-	         entityManager.remove(entry);
+			entityManager.getTransaction().begin();
+	        entityManager.remove(entry);
+	        entityManager.getTransaction().commit();
 	    } catch (Exception ex) {
 	        return false;
 	    }
@@ -45,12 +49,15 @@ public class EntryServiceImpl implements EntryService{
 	}
 
 	@Override
-	public Entry update(Entry entry) {
+	public boolean update(Entry entry) {
 		// TODO Auto-generated method stub
 	    try{
-	        return entityManager.merge(entry);
+	    	entityManager.getTransaction().begin();
+	        entityManager.merge(entry);
+	        entityManager.getTransaction().commit();
+	        return true;
 	     } catch(Exception ex) {
-	         return null;
+	         return false;
 	     }
 	}
 	
