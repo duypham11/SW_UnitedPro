@@ -25,7 +25,7 @@ public class Section {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long section_id;
 	@NotEmpty
-	@Column(name = "SectionName")
+	@Column(name = "sectionname")
 	private String sectionName;
 	
     @OneToOne(cascade = CascadeType.ALL)

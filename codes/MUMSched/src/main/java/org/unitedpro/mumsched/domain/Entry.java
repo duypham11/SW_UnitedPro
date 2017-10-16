@@ -20,7 +20,7 @@ public class Entry {
 	private long entry_id;
 	
 	@NotEmpty
-	@Column(name = "entryName")
+	@Column(name = "entryname")
 	private String entryName;
 	
     @Column(name = "number_of_FPPs")

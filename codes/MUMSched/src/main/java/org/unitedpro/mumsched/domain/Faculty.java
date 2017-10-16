@@ -22,10 +22,10 @@ public class Faculty {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long faculty_id;
 	@NotEmpty
-	@Column(name = "firstName")
+	@Column(name = "firstname")
 	private String firstName;
 	@NotEmpty
-	@Column(name = "lastName")
+	@Column(name = "lastname")
 	private String lastName;
 	@NotEmpty
 	@Column(name = "DOB")

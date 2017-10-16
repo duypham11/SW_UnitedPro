@@ -28,7 +28,7 @@ public class Block {
 	private long block_id;
 	
 	@NotEmpty
-	@Column(name = "blockName")
+	@Column(name = "blockname")
 	private String blockName;
 	
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
