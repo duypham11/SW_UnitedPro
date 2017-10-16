@@ -4,18 +4,20 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Spring Boot JSP</title>
+<title>Create new Student</title>
 </head>
 <body>
 
 <%@ include file="fragment/header.html"  %>
 
-<form action="success" method="post">
-    Section ID: <input type="text" name="sectionID" id="sectionID">
+<form action="savestudent" method="post">
+    First Name: <input type="text" name="firstName" id="firstName">
+    Last Name: <input type="text" name="lastName" id="lastName">
+    Date of Birth: <input type="datetime" name="dob" id="dob">
+    Email: <input type="email" name="email" id="email">
     <input type="submit" value="Submit">
   </form>
 
-<h3<c:out value="${sectionId}"></c:out>></h3>
 
 <%@ include file="fragment/footer.html"%>
  </body>
