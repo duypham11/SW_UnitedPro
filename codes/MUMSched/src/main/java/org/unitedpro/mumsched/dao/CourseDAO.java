@@ -1,4 +1,4 @@
-package org.unitedpro.mumsched.dao;
+/*package org.unitedpro.mumsched.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,3 +15,4 @@ public interface CourseDAO extends  CrudRepository <Course, Long> {
 	@Query("select c from Course c where c.courseCode = :courseCode")
 	public Entry findCourseByCourseCode(@Param("courseCode") Long courseCode);
 }
+*/

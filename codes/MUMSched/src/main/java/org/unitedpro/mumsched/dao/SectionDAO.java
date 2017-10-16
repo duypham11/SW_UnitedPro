@@ -1,4 +1,4 @@
-package org.unitedpro.mumsched.dao;
+/*package org.unitedpro.mumsched.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -14,3 +14,4 @@ public interface SectionDAO extends  CrudRepository<Section, Long> {
 	public Entry findSectionById(@Param("sectionId") Long sectionId);
 	
 }
+*/

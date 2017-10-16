@@ -1,4 +1,4 @@
-package org.unitedpro.mumsched.dao;
+/*package org.unitedpro.mumsched.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,3 +12,4 @@ public interface EntryDAO extends  CrudRepository <Entry, Long>{
 	@Query("select e from Entry e where e.entry_id = :entryId")
 	public Entry findEntryById(@Param("entryId") Long entryId);
 }
+*/

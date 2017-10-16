@@ -4,6 +4,6 @@ import org.unitedpro.mumsched.domain.*;
 public interface StudentService {
 	public void save(Student student);
 	public Student getStudentById(Long id);
-	public void delete(Student student);
-	public void update(Long id, Student student);
+	public boolean delete(Student student);
+	public Student update(Student student);
 }

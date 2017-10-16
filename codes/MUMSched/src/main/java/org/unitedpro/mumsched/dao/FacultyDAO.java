@@ -1,4 +1,4 @@
-package org.unitedpro.mumsched.dao;
+/*package org.unitedpro.mumsched.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -9,3 +9,4 @@ public interface FacultyDAO extends  CrudRepository<Faculty, Long>{
 	@Query("select f from Faculty f where f.faculty_id= :id")
 	public Student findFacultyById(@Param("id") Long facultyId);
 }
+*/
