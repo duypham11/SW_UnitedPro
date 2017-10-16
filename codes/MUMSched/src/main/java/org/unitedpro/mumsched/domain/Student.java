@@ -1,6 +1,5 @@
 package org.unitedpro.mumsched.domain;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +30,7 @@ public class Student {
 	private String lastName;
 	//@NotEmpty
 	@Column(name = "DOB")
-	private LocalDate DOB;
+	private String DOB;
 	@NotEmpty
 	@Email
 	@Column(name = "email")
@@ -70,11 +69,11 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public LocalDate getDOB() {
+	public String getDOB() {
 		return DOB;
 	}
 
-	public void setDOB(LocalDate dOB) {
+	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
 

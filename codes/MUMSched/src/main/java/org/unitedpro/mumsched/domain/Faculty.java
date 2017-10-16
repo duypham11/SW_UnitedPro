@@ -1,6 +1,5 @@
 package org.unitedpro.mumsched.domain;
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -29,7 +28,7 @@ public class Faculty {
 	private String lastName;
 	@NotEmpty
 	@Column(name = "DOB")
-	private LocalDate DOB;
+	private String DOB;
 	@NotEmpty
 	@Email
 	@Column(name = "email")
@@ -64,11 +63,11 @@ public class Faculty {
 		this.lastName = lastName;
 	}
 
-	public LocalDate getDOB() {
+	public String getDOB() {
 		return DOB;
 	}
 
-	public void setDOB(LocalDate dOB) {
+	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
 

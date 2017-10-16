@@ -1,7 +1,5 @@
 package org.unitedpro.mumsched.domain;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +25,7 @@ public class Admin {
 	private String lastName;
 	@NotEmpty
 	@Column(name = "DOB")
-	private LocalDate DOB;
+	private String DOB;
 	@NotEmpty
 	@Email
 	@Column(name = "email")	
@@ -54,10 +52,10 @@ public class Admin {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public LocalDate getDOB() {
+	public String getDOB() {
 		return DOB;
 	}
-	public void setDOB(LocalDate dOB) {
+	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
 	public String getEmail() {
