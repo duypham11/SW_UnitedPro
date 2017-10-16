@@ -12,7 +12,7 @@
 
 <form action="success" method="post">
     Section ID: <input type="text" name="sectionID" id="sectionID">
-    <input type="submit" value="Submit"
+    <input type="submit" value="Submit">
   </form>
 
 <h3<c:out value="${sectionId}"></c:out>></h3>
