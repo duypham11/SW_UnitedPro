@@ -30,8 +30,8 @@ public class Student {
 	@Column(name = "lastname")
 	private String lastName;
 	//@NotEmpty
-	@Column(name = "DOB")
-	private LocalDate DOB;
+	//@Column(name = "DOB")
+	//private LocalDate DOB;
 	@NotEmpty
 	@Email
 	@Column(name = "email")
@@ -70,13 +70,13 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public LocalDate getDOB() {
+	/*public LocalDate getDOB() {
 		return DOB;
 	}
 
 	public void setDOB(LocalDate dOB) {
 		DOB = dOB;
-	}
+	}*/
 
 	public String getEmail() {
 		return email;
