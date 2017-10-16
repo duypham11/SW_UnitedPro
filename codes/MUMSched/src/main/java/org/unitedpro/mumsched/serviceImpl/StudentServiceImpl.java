@@ -24,8 +24,10 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void save(Student student) {
 		// TODO Auto-generated method stub
+		entityManager.getTransaction().begin();
 		entityManager.persist(student);
 		//entityManager.flush();
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
@@ -38,7 +40,9 @@ public class StudentServiceImpl implements StudentService{
 	public boolean delete(Student student) {
 		// TODO Auto-generated method stub
 		try {
-	         entityManager.remove(student);
+			entityManager.getTransaction().begin();
+	        entityManager.remove(student);
+	        entityManager.getTransaction().commit();
 	    } catch (Exception ex) {
 	        return false;
 	    }
