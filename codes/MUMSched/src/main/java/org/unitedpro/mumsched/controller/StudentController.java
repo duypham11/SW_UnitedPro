@@ -36,7 +36,7 @@ public class StudentController {
     public String savestudent (HttpServletRequest request, Model model){
         student.setFirstName(request.getParameter("firstName"));
         student.setLastName(request.getParameter("lastName"));
-        //student.setDOB(LocalDate.parse(request.getParameter("dob")));
+        student.setDOB(LocalDate.parse(request.getParameter("dob")));
         student.setEmail(request.getParameter("email"));
         studentService.save(student);
         return "saveStudent";
