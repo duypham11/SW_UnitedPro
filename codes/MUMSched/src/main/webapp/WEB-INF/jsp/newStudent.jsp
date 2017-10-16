@@ -13,7 +13,7 @@
 <form action="savestudent" method="post">
     First Name: <input type="text" name="firstName" id="firstName">
     Last Name: <input type="text" name="lastName" id="lastName">
-    Date of Birth: <input type="datetime" name="dob" id="dob">
+    Date of Birth: <input type="date" name="dob" id="dob">
     Email: <input type="email" name="email" id="email">
     <input type="submit" value="Submit">
   </form>
