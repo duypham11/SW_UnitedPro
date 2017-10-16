@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService{
 		// TODO Auto-generated method stub
 		entityManager.getTransaction().begin();
 		entityManager.persist(student);
-		//entityManager.flush();
+		entityManager.flush();
 		entityManager.getTransaction().commit();
 	}
 

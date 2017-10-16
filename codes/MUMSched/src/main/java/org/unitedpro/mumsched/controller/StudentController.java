@@ -22,7 +22,7 @@ public class StudentController {
     StudentServiceImpl studentService;
     Student student;
     public StudentController(){
-        student = new Student();
+        
         entityManager = JPAUtility.getEntityManager();
         studentService = new StudentServiceImpl();
         studentService.setEntityManager(entityManager);
@@ -35,9 +35,12 @@ public class StudentController {
 
     @RequestMapping(value = "/savestudent")
     public String savestudent (HttpServletRequest request, Model model){
+    	student = new Student();
         student.setFirstName(request.getParameter("firstName"));
         student.setLastName(request.getParameter("lastName"));
-        //student.setDOB(LocalDate.parse(request.getParameter("dob")));
+        System.out.println("before=========");
+        student.setDOB(LocalDate.parse(request.getParameter("dob")));
+        System.out.println("after=========");
         student.setEmail(request.getParameter("email"));
         studentService.save(student);
         return "saveStudent";
