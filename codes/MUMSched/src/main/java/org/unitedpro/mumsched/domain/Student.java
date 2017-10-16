@@ -36,8 +36,17 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 	
-
+	@Column(name = "password")
+	private String password;
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@OneToMany(mappedBy = "student")
 	private Set<Student_Section> student_Sections = new HashSet<Student_Section>(0);	
 	

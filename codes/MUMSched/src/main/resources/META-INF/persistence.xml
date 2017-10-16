@@ -6,7 +6,6 @@
     <persistence-unit name="org.unitedpro.mumsched">
         <description>JPA Demo</description>
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>org.unitedpro.mumsched.domain</class> 
          <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>

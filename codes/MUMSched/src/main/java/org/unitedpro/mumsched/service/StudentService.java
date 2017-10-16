@@ -8,6 +8,7 @@ public interface StudentService {
 	public EntityManager getEntityManager();
 	public void save(Student student);
 	public Student getStudentById(Long id);
+	public Student getStudentByEmail(String email);
 	public boolean delete(Student student);
 	public boolean update(Student student);
 }

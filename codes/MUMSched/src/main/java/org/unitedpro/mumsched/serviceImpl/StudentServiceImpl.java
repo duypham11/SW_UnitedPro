@@ -88,5 +88,10 @@ public class StudentServiceImpl implements StudentService{
 		s = student;
 		studentDAO.
 	}*/
+	@Override
+	public Student getStudentByEmail(String email) {
+		// TODO Auto-generated method stub
+		return (Student) entityManager.createQuery("select s from Student s where s.email= :email").setParameter("email", email).getSingleResult();
+	}
 	
 }
