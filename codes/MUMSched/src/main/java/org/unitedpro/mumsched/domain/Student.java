@@ -29,7 +29,7 @@ public class Student {
 	@NotEmpty
 	@Column(name = "lastname")
 	private String lastName;
-	@NotEmpty
+	//@NotEmpty
 	@Column(name = "DOB")
 	private LocalDate DOB;
 	@NotEmpty
