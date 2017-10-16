@@ -40,9 +40,18 @@ public class StudentController {
         student.setLastName(request.getParameter("lastName"));
 
         System.out.println("before=========");
+<<<<<<< HEAD
         student.setDOB(LocalDate.parse(request.getParameter("dob")).toString());
         System.out.println("after=========");
 
+=======
+        student.setDOB(LocalDate.parse(request.getParameter("dob")));
+        System.out.println(student.getDOB());
+        System.out.println("after=========");
+
+        student.setDOB(LocalDate.parse(request.getParameter("dob")));
+
+>>>>>>> 40e18f865d9a27aedd9acdeff18750cf733305a1
         student.setEmail(request.getParameter("email"));
         studentService.save(student);
         return "saveStudent";
