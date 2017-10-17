@@ -20,22 +20,22 @@ public class Entry {
 	private long entry_id;
 	
 	@NotEmpty
-	@Column(name = "entryname")
+	@Column
 	private String entryName;
 	
-    @Column(name = "number_of_FPPs")
+    @Column
     private int noFPP;
 
-    @Column(name = "number_of_MPPs")
+    @Column
     private int noMPP;
 
-    @Column(name = "number_of_OPT_FPPs")
+    @Column
     private int noOPTFPP;
 
-    @Column(name = "number_of_OPT_MPPs")
+    @Column
     private int noOPTMPP;
     
-    @Column(name = "number_of_USResidents")
+    @Column
     private int noOfUSRes;
 
     @OneToMany(mappedBy = "entry")

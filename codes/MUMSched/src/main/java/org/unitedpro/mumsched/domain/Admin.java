@@ -18,7 +18,7 @@ public class Admin {
 	private long admin_id;
 	
 	@NotEmpty
-	@Column(name = "username")
+	@Column
 	private String username;
 /*	@NotEmpty
 	@Column(name = "lastname")
@@ -28,10 +28,10 @@ public class Admin {
 	private String DOB;*/
 	@NotEmpty
 	@Email
-	@Column(name = "email")	
+	@Column
 	private String email;
 	
-	@Column(name = "password")
+	@Column
 	private String password;
 
 
