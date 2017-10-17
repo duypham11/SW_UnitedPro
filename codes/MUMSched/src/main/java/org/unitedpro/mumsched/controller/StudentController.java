@@ -38,12 +38,7 @@ public class StudentController {
     	student = new Student();
         student.setFirstName(request.getParameter("firstName"));
         student.setLastName(request.getParameter("lastName"));
-
-        System.out.println("before=========");
-
         student.setDOB(LocalDate.parse(request.getParameter("dob")).toString());
-        System.out.println("after=========");
-
         student.setEmail(request.getParameter("email"));
         studentService.save(student);
         return "saveStudent";
