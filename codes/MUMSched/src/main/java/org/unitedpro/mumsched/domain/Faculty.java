@@ -1,6 +1,5 @@
 package org.unitedpro.mumsched.domain;
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -22,14 +21,14 @@ public class Faculty {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long faculty_id;
 	@NotEmpty
-	@Column(name = "firstName")
+	@Column(name = "firstname")
 	private String firstName;
 	@NotEmpty
-	@Column(name = "lastName")
+	@Column(name = "lastname")
 	private String lastName;
 	@NotEmpty
 	@Column(name = "DOB")
-	private LocalDate DOB;
+	private String DOB;
 	@NotEmpty
 	@Email
 	@Column(name = "email")
@@ -39,4 +38,61 @@ public class Faculty {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Course> courses;
+
+	public long getFaculty_id() {
+		return faculty_id;
+	}
+
+	public void setFaculty_id(long faculty_id) {
+		this.faculty_id = faculty_id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getDOB() {
+		return DOB;
+	}
+
+	public void setDOB(String dOB) {
+		DOB = dOB;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Collection<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Collection<Course> courses) {
+		this.courses = courses;
+	}
+    
 }
