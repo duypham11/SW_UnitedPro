@@ -41,6 +41,7 @@ public class StudentController {
         student.setDOB(LocalDate.parse(request.getParameter("dob")).toString());
         student.setEmail(request.getParameter("email"));
         studentService.save(student);
+        model.addAttribute("message",student.getStudent_id());
         return "saveStudent";
     }
 }
