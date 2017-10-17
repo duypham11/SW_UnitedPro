@@ -25,11 +25,11 @@ public class Section {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long section_id;
 	@NotEmpty
-	@Column(name = "sectionname")
+	@Column
 	private String sectionName;
 	
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
+    @JoinColumn
     private Course course;
 
     @OneToMany
@@ -45,10 +45,10 @@ public class Section {
     @ManyToOne
     private Block block;
 
-    @Column(name = "room_no")
+    @Column
     private String roomNo;
 
-    @Column(name = "available_seat")
+    @Column
     private int availableSeats = 25;
 
 	public long getSection_id() {

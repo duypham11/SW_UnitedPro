@@ -21,20 +21,20 @@ public class Faculty {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long faculty_id;
 	@NotEmpty
-	@Column(name = "firstname")
+	@Column
 	private String firstName;
 	@NotEmpty
-	@Column(name = "lastname")
+	@Column
 	private String lastName;
 	@NotEmpty
-	@Column(name = "DOB")
+	@Column
 	private String DOB;
 	@NotEmpty
 	@Email
-	@Column(name = "email")
+	@Column
 	private String email;
 	@NotEmpty
-	@Column(name = "password")
+	@Column
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)

@@ -33,23 +33,23 @@ public class Student_Section implements Serializable {
 	private long ss_id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "student_id")  
+    @JoinColumn  
     private Student student;
     public Student getStudent() {
         return student;
     }
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "section_id")  
+    @JoinColumn  
     private Section section;
     public Section getSection() {
         return section;
     }
-    @NotEmpty
-    @Column(name = "grade")
+
+    @Column
     private char grade;
-    @NotEmpty
-    @Column(name = "point")
+
+    @Column
     private Double point;
     
     public Double getPoint() {
@@ -59,10 +59,10 @@ public class Student_Section implements Serializable {
 		this.point = point;
 	}
 	@NotEmpty
-    @Column(name = "isApproved")
+    @Column
     private boolean isApproved;
-    @NotEmpty
-    @Column(name = "Comments")
+
+    @Column
     private String comments;
     
     

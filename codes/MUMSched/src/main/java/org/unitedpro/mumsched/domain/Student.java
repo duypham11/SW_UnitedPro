@@ -19,24 +19,24 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Student {	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "student_id")
+	@Column
 	private long student_id;
 	
 	@NotEmpty
-	@Column(name = "firstname")
+	@Column
 	private String firstName;
 	@NotEmpty
-	@Column(name = "lastname")
+	@Column
 	private String lastName;
 	//@NotEmpty
-	@Column(name = "DOB")
+	@Column
 	private String DOB;
 	@NotEmpty
 	@Email
-	@Column(name = "email")
+	@Column
 	private String email;
-	@NotEmpty
-	@Column(name = "password")
+	//@NotEmpty
+	@Column
 	private String password;
 	
 	public String getPassword() {

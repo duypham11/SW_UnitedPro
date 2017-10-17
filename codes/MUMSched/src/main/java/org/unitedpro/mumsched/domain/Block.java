@@ -28,7 +28,7 @@ public class Block {
 	private long block_id;
 	
 	@NotEmpty
-	@Column(name = "blockname")
+	@Column
 	private String blockName;
 	
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -42,11 +42,11 @@ public class Block {
     @ManyToOne
     private Entry entry;
 
-    @Column(name = "start_date")
+    @Column
     @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    @Column(name = "end_date")
+    @Column
     @Temporal(TemporalType.DATE)
     private Date endDate;
 

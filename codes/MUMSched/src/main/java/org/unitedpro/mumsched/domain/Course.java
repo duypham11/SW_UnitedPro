@@ -24,7 +24,7 @@ public class Course {
 	private long course_id;
 	
 	@NotEmpty
-    @Column(unique = true, name = "course_code")
+    @Column(unique = true)
     private String courseCode;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,11 +36,11 @@ public class Course {
     private List<Course> preCourses;
     
 	@NotEmpty
-	@Column(name = "coursename")
+	@Column
 	private String courseName;
 	
 	@NotEmpty
-    @Column(name = "course_description")
+    @Column
     private String courseDescription;
 
 	public long getCourse_id() {
