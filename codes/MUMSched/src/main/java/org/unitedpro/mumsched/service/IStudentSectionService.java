@@ -12,4 +12,5 @@ public interface IStudentSectionService {
 
     boolean update(Student_Section studentsection);
 
+//    Iterable<Student_Section> getAllByStudent(Student student);
 }

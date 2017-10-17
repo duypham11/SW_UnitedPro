@@ -25,4 +25,8 @@ public class StudentSectionServiceImpl implements IStudentSectionService {
 		return true;
 	}
 
+//	@Override
+//	public Iterable<Student_Section> getAllByStudent(Student student){
+//		return studentSectionDAO.getAllByStudent();
+//	}
 }
