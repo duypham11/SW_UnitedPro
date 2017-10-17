@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
@@ -18,6 +20,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="Student_Section")
 public class Student_Section implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long ss_id;
 	@Id
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id")  
