@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.domain.Entry;
 
 @Service
-public class EntryServiceImpl implements org.unitedpro.mumsched.service.EntryServiceImpl {
+public class EntryServiceImpl implements EntryService {
 
 	//private Entry entry;
 	private EntityManager entityManager;
