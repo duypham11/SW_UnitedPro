@@ -30,4 +30,9 @@ public class EntryServiceImpl implements IEntryService {
 		entryDAO.save(entry);
 		return true;
 	}
+
+	@Override
+	public Iterable<Entry> getAllEntry() {
+		return entryDAO.findAll();
+	}
 }
