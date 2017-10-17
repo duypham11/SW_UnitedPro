@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.BlockDAO;
 import org.unitedpro.mumsched.domain.Block;
 
-import javax.persistence.EntityManager;
-
 @Service
 public class BlockServiceImpl implements IBlockService {
 	@Autowired
@@ -32,5 +30,10 @@ public class BlockServiceImpl implements IBlockService {
 	public boolean update(Block block){
 		blockDAO.save(block);
 		return true;
+	}
+
+	@Override
+	public Iterable<Block> getAllBlock() {
+		return blockDAO.findAll();
 	}
 }

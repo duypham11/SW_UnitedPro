@@ -13,4 +13,7 @@ public interface IBlockService {
     boolean delete(Block block);
 
     boolean update(Block block);
+
+    Iterable<Block> getAllBlock();
+
 }

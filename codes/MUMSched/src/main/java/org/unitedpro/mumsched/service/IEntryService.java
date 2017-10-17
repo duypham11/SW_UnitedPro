@@ -13,4 +13,6 @@ public interface IEntryService {
     boolean delete(Entry entry);
 
     boolean update(Entry entry);
+
+    Iterable<Entry> getAllEntry();
 }

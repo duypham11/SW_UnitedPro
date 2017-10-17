@@ -1,7 +1,5 @@
 package org.unitedpro.mumsched.service;
 
-import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.CourseDAO;
@@ -18,6 +16,10 @@ public class CourseServiceImpl implements ICourseService {
 	@Override
 	public Course getCourseById(Long id){
 		return courseDAO.findOne(id);
+	}
+	@Override
+	public Iterable<Course> getAllCourse(){
+		return courseDAO.findAll();
 	}
 	@Override
 	public boolean delete(Course course){

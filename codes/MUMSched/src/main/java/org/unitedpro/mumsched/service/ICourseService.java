@@ -15,4 +15,6 @@ public interface ICourseService {
     boolean deleteById(long id);
 
     boolean update(Course course);
+
+    Iterable<Course> getAllCourse();
 }
