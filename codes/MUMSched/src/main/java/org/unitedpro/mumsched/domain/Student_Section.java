@@ -20,17 +20,25 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="Student_Section")
 public class Student_Section implements Serializable {
 
+	public long getSs_id() {
+		return ss_id;
+	}
+
+	public void setSs_id(long ss_id) {
+		this.ss_id = ss_id;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long ss_id;
-	@Id
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id")  
     private Student student;
     public Student getStudent() {
         return student;
     }
-    @Id
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "section_id")  
     private Section section;

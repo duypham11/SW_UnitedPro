@@ -6,5 +6,5 @@ import org.unitedpro.mumsched.domain.Student_Section;
 
 @Repository
 public interface StudentSectionDAO extends CrudRepository<Student_Section, Long> {
-    Iterable<Student_Section> getAllByStudent();
+
 }
