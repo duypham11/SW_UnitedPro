@@ -35,7 +35,7 @@ public class Student {
 	@Email
 	@Column(name = "email")
 	private String email;
-	
+	@NotEmpty
 	@Column(name = "password")
 	private String password;
 	

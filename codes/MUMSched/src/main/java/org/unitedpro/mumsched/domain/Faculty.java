@@ -34,6 +34,7 @@ public class Faculty {
 	@Column(name = "email")
 	private String email;
 	@NotEmpty
+	@Column(name = "password")
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)

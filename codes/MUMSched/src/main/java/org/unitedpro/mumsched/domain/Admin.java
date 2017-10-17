@@ -18,19 +18,21 @@ public class Admin {
 	private long admin_id;
 	
 	@NotEmpty
-	@Column(name = "firstname")
-	private String firstName;
-	@NotEmpty
+	@Column(name = "username")
+	private String username;
+/*	@NotEmpty
 	@Column(name = "lastname")
 	private String lastName;
 	@NotEmpty
 	@Column(name = "DOB")
-	private String DOB;
+	private String DOB;*/
 	@NotEmpty
 	@Email
 	@Column(name = "email")	
 	private String email;
-
+	
+	@Column(name = "password")
+	private String password;
 
 
 
@@ -40,7 +42,7 @@ public class Admin {
 	public void setAdmin_id(long admin_id) {
 		this.admin_id = admin_id;
 	}
-	public String getFirstName() {
+/*	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
@@ -57,7 +59,7 @@ public class Admin {
 	}
 	public void setDOB(String dOB) {
 		DOB = dOB;
-	}
+	}*/
 	public String getEmail() {
 		return email;
 	}
