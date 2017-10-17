@@ -5,10 +5,9 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.domain.Entry;
-import org.unitedpro.mumsched.service.EntryService;
 
 @Service
-public class EntryServiceImpl implements EntryService{
+public class EntryServiceImpl implements org.unitedpro.mumsched.service.EntryServiceImpl {
 
 	//private Entry entry;
 	private EntityManager entityManager;
