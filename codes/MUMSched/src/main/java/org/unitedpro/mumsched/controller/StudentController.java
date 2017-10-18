@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.unitedpro.mumsched.domain.Student;
 import org.unitedpro.mumsched.service.IStudentService;
 
-import java.util.List;
-
 /**
  * Created by Duong Truong on 10/13/2017.
  */
@@ -23,12 +21,7 @@ public class StudentController {
 
     @RequestMapping(value = "/viewstudent",method = RequestMethod.GET)
     public Iterable<Student> viewstudent(Model model){
-        List<Student> students = (List<Student>) service.getAllStudent();
-        for(Student student:students){
-            System.out.println(student.getStudent_id());
-        }
-
-        model.addAttribute("message",service.getAllStudent());
+        model.addAttribute("students",service.getAllStudent());
        return service.getAllStudent();
     }
 

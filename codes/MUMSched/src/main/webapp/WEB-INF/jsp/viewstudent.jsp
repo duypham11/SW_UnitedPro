@@ -11,8 +11,38 @@
 <html>
 <head>
     <title>View Student</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
-<h3>${message}</h3>
+<table>
+    <tr>
+        <td><c:out value="Student ID" /></td>
+        <td><c:out value="First Name" /></td>
+        <td><c:out value="Last Name" /></td>
+    </tr>
+    <c:forEach items="${students}" var="student">
+        <tr>
+            <td><c:out value="${student.student_id}" /></td>
+            <td><c:out value="${student.firstName}" /></td>
+            <td><c:out value="${student.lastName}" /></td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
