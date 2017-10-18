@@ -14,8 +14,8 @@
     First Name: <input type="text" name="firstName" id="firstName">
     Last Name: <input type="text" name="lastName" id="lastName">
     Date of Birth: <input type="date" name="DOB" id="DOB">
-    Password: <input type="text" name="password", id="password">
-    Email: <input type="email" name="email" id="email">
+    Password: <input type="password" name="password", id="password">
+    Email: <input type="email" name="email" id="email" value="12345">
     <input type="submit" value="Submit">
   </form>
 
