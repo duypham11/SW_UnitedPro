@@ -9,9 +9,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Success Section Register</title>
+    <title>Success</title>
 </head>
 <body>
-<h3>Your SectionID: ${message} has been register successfully</h3>
+<h3>${message}</h3>
 </body>
 </html>

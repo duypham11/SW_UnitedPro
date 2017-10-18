@@ -4,19 +4,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Spring Boot JSP</title>
+    <title>Register Section</title>
 </head>
 <body>
 
 <%@ include file="fragment/header.html"  %>
 
-<form action="success" method="post">
-    Section ID: <input type="text" name="sectionID" id="sectionID">
+<form action="register" method="post">
+    Section ID: <input type="text" name="sectionId" id="sectionId">
     <input type="submit" value="Submit">
-  </form>
+</form>
 
-<h3<c:out value="${sectionId}"></c:out>></h3>
 
 <%@ include file="fragment/footer.html"%>
- </body>
+</body>
 </html>
