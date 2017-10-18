@@ -12,9 +12,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class MumSchedApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.unitedpro.mumsched");
-		//EntityManager em = emf.createEntityManager();
-
+		//Persistence.createEntityManagerFactory("org.unitedpro.mumsched");
 		SpringApplication.run(MumSchedApplication.class, args);
 	}
 

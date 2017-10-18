@@ -46,7 +46,9 @@ public class StudentController {
         student.setEmail(request.getParameter("email"));
         student.setDOB(request.getParameter("DOB"));
         service.createStudent(student);
+        System.out.println("save student===== " + student);
         model.addAttribute("message",student.getStudent_id());
+        
         return "savestudent";
     }
 
