@@ -35,12 +35,14 @@
         <td><c:out value="Student ID" /></td>
         <td><c:out value="First Name" /></td>
         <td><c:out value="Last Name" /></td>
+        <td><c:out value="Email" /></td>
     </tr>
     <c:forEach items="${students}" var="student">
         <tr>
             <td><c:out value="${student.student_id}" /></td>
             <td><c:out value="${student.firstName}" /></td>
             <td><c:out value="${student.lastName}" /></td>
+            <td><c:out value="${student.email}" /></td>
         </tr>
     </c:forEach>
 </table>
