@@ -4,9 +4,14 @@ import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Student;
+import org.unitedpro.mumsched.domain.Student_Section;
+import org.unitedpro.mumsched.service.ISectionService;
+import org.unitedpro.mumsched.service.IStudentSectionService;
 import org.unitedpro.mumsched.service.IStudentService;
 
 /**
@@ -15,14 +20,24 @@ import org.unitedpro.mumsched.service.IStudentService;
 @Controller
 public class StudentController {
     @Autowired
-    private IStudentService service;
+    private IStudentService studentService;
+
+    @Autowired
+    private ISectionService sectionService;
+
+    @Autowired
+    private IStudentSectionService studentSectionService;
 
     private Student student;
 
+    private Section section;
+
+    private Student_Section student_section;
+
     @RequestMapping(value = "/viewstudent",method = RequestMethod.GET)
     public Iterable<Student> viewstudent(Model model){
-        model.addAttribute("students",service.getAllStudent());
-       return service.getAllStudent();
+        model.addAttribute("students", studentService.getAllStudent());
+       return studentService.getAllStudent();
     }
 
     @RequestMapping(value = "/newstudent")
@@ -38,12 +53,34 @@ public class StudentController {
         student.setPassword(request.getParameter("password"));
         student.setEmail(request.getParameter("email"));
         student.setDOB(request.getParameter("DOB"));
-        service.createStudent(student);
+        studentService.createStudent(student);
         System.out.println("save student===== " + student);
-        model.addAttribute("message",student.getStudent_id());
+        String message = "Your Student is registered with student ID:" + student.getStudent_id();
+        model.addAttribute("message",message);
         
-        return "savestudent";
+        return "success";
     }
+
+    @RequestMapping(value = "/{studentId}/registersection", method = RequestMethod.GET)
+    public String registersection(@PathVariable("studentId") long studentId, Model model){
+        model.addAttribute("studentId",studentId);
+        return "registersection";
+    }
+
+    @RequestMapping(value = "/{studentId}/register",method = RequestMethod.POST)
+    public String register(@PathVariable("studentId") long studentId, HttpServletRequest request, Model model){
+        long sectionId = Long.parseLong(request.getParameter("sectionId"));
+        section = sectionService.getSectionById(sectionId);
+        student = studentService.getStudentById(studentId);
+
+        student_section = new Student_Section();
+        student_section.setStudent(student);
+        student_section.setSection(section);
+
+        studentSectionService.save(student_section);
+        return "success";
+    }
+
 
 
 }
