@@ -72,7 +72,7 @@ public class Schedule {
 		return schedule_id;
 	}
 
-	public void setEntrys(List<Entry> entrys) {
-		this.entrys = entrys;
+	public void setEntrys(Entry entry) {
+		this.entry = entry;
 	}
 }
