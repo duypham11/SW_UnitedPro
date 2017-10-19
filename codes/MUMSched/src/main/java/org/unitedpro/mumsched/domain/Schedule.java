@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,16 +25,16 @@ public class Schedule {
 	private Date endDate;
 	private String courseName;
 	
-	@OneToMany(mappedBy = "schedule")
-	private List<Entry> entrys;
+	@OneToOne(mappedBy = "schedule")
+	private Entry entry;
 
-	public List<Entry> getEntrys() {
-		return entrys;
+	public Entry getEntry() {
+		return entry;
 	}
 
-	public void addEntry(Entry entry) {
-		entrys.add(entry);
-	}
+//	public void addEntry(Entry entry) {
+//		entrys.add(entry);
+//	}
 
 	public String getBlockName() {
 		return blockName;
