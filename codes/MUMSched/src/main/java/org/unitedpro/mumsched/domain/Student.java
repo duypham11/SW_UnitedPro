@@ -54,6 +54,10 @@ public class Student {
 		return this.student_Sections;
 	}
 
+	public void addStudentSection(Student_Section student_section){
+		this.student_Sections.add(student_section);
+	}
+
 	public long getStudent_id() {
 		return student_id;
 	}

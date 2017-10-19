@@ -76,6 +76,7 @@ public class StudentController {
         student_section = new Student_Section();
         student_section.setStudent(student);
         student_section.setSection(section);
+        student_section.setApproved(false);
 
         studentSectionService.save(student_section);
         return "success";

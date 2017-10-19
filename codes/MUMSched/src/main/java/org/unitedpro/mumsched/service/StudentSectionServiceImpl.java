@@ -3,6 +3,7 @@ package org.unitedpro.mumsched.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.StudentSectionDAO;
+import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Student_Section;
 
 @Service
@@ -25,8 +26,8 @@ public class StudentSectionServiceImpl implements IStudentSectionService {
 		return true;
 	}
 
-//	@Override
-//	public Iterable<Student_Section> getAllByStudent(Student student){
-//		return studentSectionDAO.getAllByStudent();
-//	}
+	@Override
+	public Iterable<Section> getAllByStudent(long studentID){
+		return studentSectionDAO.getAllByStudent_Student_id(studentID);
+	}
 }
