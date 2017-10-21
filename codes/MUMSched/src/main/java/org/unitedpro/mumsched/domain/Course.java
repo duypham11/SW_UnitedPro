@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -42,6 +43,12 @@ public class Course {
 	@NotEmpty
     @Column
     private String courseDescription;
+
+//	@ManyToMany     
+//	private List<Faculty> facultyList;
+
+	@ManyToMany(mappedBy="courseList")
+	private List<Faculty> facultyList;
 
 	public long getCourse_id() {
 		return course_id;

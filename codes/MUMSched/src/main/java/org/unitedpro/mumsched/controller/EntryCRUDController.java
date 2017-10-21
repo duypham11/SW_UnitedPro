@@ -38,11 +38,13 @@ public class EntryCRUDController {
     	
     	entry = new Entry();
     	entry.setEntryName(request.getParameter("entryName"));
-    	entry.setEntryName(request.getParameter("noFPP"));
-    	entry.setEntryName(request.getParameter("noMPP"));
-    	entry.setEntryName(request.getParameter("noOPTFPP"));
-    	entry.setEntryName(request.getParameter("noOPTMPP"));
-    	entry.setEntryName(request.getParameter("noOfUSRes"));
+    	entry.setNoFPP(Integer.valueOf(request.getParameter("noFPP")));
+    	entry.setNoMPP(Integer.valueOf(request.getParameter("noMPP")));
+    	entry.setNoOPTFPP(Integer.valueOf(request.getParameter("noOPTFPP")));
+    	entry.setNoOPTMPP(Integer.valueOf(request.getParameter("noOPTMPP")));
+    	entry.setNoOfUSRes(Integer.valueOf(request.getParameter("noOfUSRes")));
+    	
+    	System.out.println("-=========" + request.getParameter("entryName"));
     	entryService.save(entry);
     	       
         return "entryadmin";

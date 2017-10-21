@@ -37,7 +37,7 @@
     <input type="submit" value="Submit">
   </form>
   
-<form action="entrymanagement" method="get">
+<form action="entryadmin" method="get">
 
 <table style="border: 2px solid;">
     <tr>
