@@ -57,11 +57,7 @@ public class Student_Section implements Serializable {
 	public void setPoint(Double point) {
 		this.point = point;
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> d9c87912aa1633d479a2ee52446ac18dfc2c5af8
     @Column
     private boolean isApproved;
 
