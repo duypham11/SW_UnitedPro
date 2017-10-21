@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.service;
 
+import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Student_Section;
 
 /**
@@ -12,5 +13,5 @@ public interface IStudentSectionService {
 
     boolean update(Student_Section studentsection);
 
-//    Iterable<Student_Section> getAllByStudent(Student student);
+    Iterable<Section> getAllByStudent(long studentId);
 }
