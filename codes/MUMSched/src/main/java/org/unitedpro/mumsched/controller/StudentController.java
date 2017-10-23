@@ -48,11 +48,7 @@ public class StudentController {
     @RequestMapping(value = "/savestudent",method = RequestMethod.POST)
     public String save(HttpServletRequest request, Model model){
         student = new Student();
-        student.setFirstName(request.getParameter("firstName"));
-        student.setLastName(request.getParameter("lastName"));
-        student.setPassword(request.getParameter("password"));
-        student.setEmail(request.getParameter("email"));
-        student.setDOB(request.getParameter("DOB"));
+        studentService.saveStudent(student,request);
         studentService.createStudent(student);
         System.out.println("save student===== " + student);
         String message = "Your Student is registered with student ID:" + student.getStudent_id();
@@ -77,11 +73,36 @@ public class StudentController {
         student_section.setStudent(student);
         student_section.setSection(section);
         student_section.setApproved(false);
+        student.addStudentSection(student_section);
+        section.addStudentSection(student_section);
+
+        studentService.updateStudent(student);
+        sectionService.update(section);
 
         studentSectionService.save(student_section);
+
+        String message = "You have register the Section: " + section.getSectionName() +
+                ". And your register ID is: " +  student_section.getSs_id();
+        model.addAttribute("message",message);
         return "success";
     }
 
+    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.GET)
+    public String editstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
+        model.addAttribute("studentId",studentId);
+        student = studentService.getStudentById(studentId);
+        model.addAttribute("student",student);
+        return "editstudent";
+    }
 
+    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.POST)
+    public String editedstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
+        student = studentService.getStudentById(studentId);
+        studentService.saveStudent(student,request);
+        studentService.updateStudent(student);
 
+        String message = "Your profile has been updated";
+        model.addAttribute("message",message);
+        return "success";
+    }
 }

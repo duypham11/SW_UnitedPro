@@ -28,9 +28,11 @@
             background-color: #dddddd;
         }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-<table>
+<%@ include file="fragment/header.html"  %>
+<table width = 100% border="1">
     <tr>
         <td><c:out value="Student ID" /></td>
         <td><c:out value="First Name" /></td>
@@ -38,13 +40,22 @@
         <td><c:out value="Email" /></td>
     </tr>
     <c:forEach items="${students}" var="student">
-        <tr>
-            <td><c:out value="${student.student_id}" /></td>
+        <tr onclick="myFunction(${student.student_id})">
+            <td ><c:out value="${student.student_id}" /></td>
             <td><c:out value="${student.firstName}" /></td>
             <td><c:out value="${student.lastName}" /></td>
             <td><c:out value="${student.email}" /></td>
         </tr>
+
     </c:forEach>
+
 </table>
+<%@ include file="fragment/footer.html"%>
+<script>
+    function myFunction(studentId) {
+        url = "http://localhost:8080/" + studentId + "/" + "editstudent";
+        window.location.assign(url)
+    }
+</script>
 </body>
 </html>

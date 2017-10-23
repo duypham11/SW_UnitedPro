@@ -42,6 +42,10 @@ public class Section {
 		return this.student_Sections;
 	}
 
+	public void addStudentSection(Student_Section student_section){
+		this.student_Sections.add(student_section);
+	}
+
     @ManyToOne
     private Block block;
 
