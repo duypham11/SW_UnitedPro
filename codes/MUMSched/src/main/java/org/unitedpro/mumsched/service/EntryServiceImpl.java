@@ -1,12 +1,14 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.EntryDAO;
 import org.unitedpro.mumsched.domain.Entry;
+
+
 @Service
 public class EntryServiceImpl implements IEntryService {
 	@Autowired
@@ -16,7 +18,7 @@ public class EntryServiceImpl implements IEntryService {
 	public void save(Entry entry){
 		entryDAO.save(entry);
 	}
-
+	
 	@Override
 	public Entry getEntryById(Long id){
 		return entryDAO.findOne(id);
@@ -40,7 +42,9 @@ public class EntryServiceImpl implements IEntryService {
 	}
 
 	@Override
-	public List<Entry> getEntryList() {		
-		return Lists.newArrayList(entryDAO.findAll());
+	public List<Entry> getEntryList() {
+		return entryDAO.getEntryList();
 	}
+
+	
 }

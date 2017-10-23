@@ -19,22 +19,25 @@ public class EntryAdminController {
 	IEntryService entryService;
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
-	public ModelAndView list() {
+	public ModelAndView list() {		
 		ModelAndView model = new ModelAndView("admin/entry_list");
-		List<Entry> entryList = entryService.getEntryList();
+		List<Entry> entryList = entryService.getEntryList();		
+		System.out.println("======list===" + entryList.size());
 		model.addObject("list", entryList);		
 		return model;
 	}
 	
-	@RequestMapping(value="/update{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/update/{id}", method = RequestMethod.GET)
 	public ModelAndView update(@PathVariable("id") long id) {
+		System.out.println("======update===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
 		model.addObject("entryForm", entry);		
 		return model;
 	}	
-	@RequestMapping(value="/delete{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable("id") long id) {
+		System.out.println("======delete===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
 		entryService.delete(entry);
@@ -42,16 +45,19 @@ public class EntryAdminController {
 		return model;
 	}	
 	
-	@RequestMapping(value="/add{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/add/{id}", method = RequestMethod.GET)
 	public ModelAndView add() {
+		System.out.println("======add===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = new Entry();
 		model.addObject("entryForm", entry);		
 		return model;
 	}	
 	
-	@RequestMapping(value="/save", method = RequestMethod.POST)
+
+	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entryForm") Entry entry) {
+		System.out.println("======save===" );
 		entryService.save(entry);	
 		
 		return new ModelAndView("redirect:/admin/list");

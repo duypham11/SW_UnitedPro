@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="b" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%-- <%@ taglib prefix="b" uri="http://www.springframework.org/tags/form" %>
+ --%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,9 +11,9 @@
 <spring:url value="/admin/save" var="saveURL"/>
 
 
-<%@ include file="fragment/header.html"  %>
+<%@ include file="../fragment/header.html"  %>
 
-<form:form action="${saveURL} }" method="post" modelAttribute ="entryForm">
+<form:form action="${saveURL}" method="POST" modelAttribute ="entryForm">
 	<form:hidden path = "entry_id"/>
 	<table>
 		<tr>
@@ -38,11 +39,15 @@
 		<tr>
 			<td>Number US Resident: </td>
 			<td><form:input type="number" path="noOfUSRes"/>
-		</tr>						
+		</tr>				
+		<tr>
+			<td> </td>
+			<td><button type="submit">Save</button>
+		</tr>		
 	</table>
 </form:form>
 	
 
-<%@ include file="fragment/footer.html"%>
+<%@ include file="../fragment/footer.html"%>
  </body>
 </html>
