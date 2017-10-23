@@ -32,20 +32,21 @@ public class EntryAdminController {
 		System.out.println("======update===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
-		model.addObject("entryForm", entry);		
-		return model;
+		return model.addObject("entryForm", entry);		
+		//return new ModelAndView("redirect:/admin/list");
 	}	
 	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable("id") long id) {
-		System.out.println("======delete===" );
-		ModelAndView model = new ModelAndView("admin/entryform");
+		
+		//ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
+		System.out.println("======delete===" + entry.getEntry_id());
 		entryService.delete(entry);
-		model.addObject("entryForm", entry);		
-		return model;
+		//model.addObject("entryForm", entry);		
+		return new ModelAndView("redirect:/admin/list");
 	}	
 	
-	@RequestMapping(value="/add/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/add", method = RequestMethod.GET)
 	public ModelAndView add() {
 		System.out.println("======add===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
@@ -58,8 +59,13 @@ public class EntryAdminController {
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entryForm") Entry entry) {
 		System.out.println("======save===" );
-		entryService.save(entry);	
-		
+		entryService.save(entry);		
 		return new ModelAndView("redirect:/admin/list");
 	}	
+	@RequestMapping(value="/update/{id}", method = RequestMethod.POST)
+	public ModelAndView save1(@ModelAttribute("entryForm") Entry entry) {
+		System.out.println("======save=111==" );
+		entryService.save(entry);		
+		return new ModelAndView("redirect:/admin/list");
+	}
 }

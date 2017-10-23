@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%-- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+ --%>
 <%-- <%@ taglib prefix="b" uri="http://www.springframework.org/tags/form" %>
  --%>
 <!DOCTYPE HTML>
@@ -24,6 +26,7 @@
 		<td>Number OPT MPP: </td>
 		<td>Number US Residence: </td>
 		<td>Total: </td>
+		<td colspan="2">Action</td>
 	</tr>
 	<c:forEach items="${list}" var="entry">
 	<tr>
