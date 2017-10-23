@@ -1,7 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<<<<<<< HEAD
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%-- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
  --%>
+=======
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+>>>>>>> ae16845f28534881c46ed02f7948241ae67ca759
 <%-- <%@ taglib prefix="b" uri="http://www.springframework.org/tags/form" %>
  --%>
 <!DOCTYPE HTML>
