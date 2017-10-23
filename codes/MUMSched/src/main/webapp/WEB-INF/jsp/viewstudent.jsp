@@ -31,7 +31,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-<table>
+<%@ include file="fragment/header.html"  %>
+<table width = 100% border="1">
     <tr>
         <td><c:out value="Student ID" /></td>
         <td><c:out value="First Name" /></td>
@@ -49,10 +50,11 @@
     </c:forEach>
 
 </table>
+<%@ include file="fragment/footer.html"%>
 <script>
     function myFunction(studentId) {
         url = "http://localhost:8080/" + studentId + "/" + "editstudent";
-        window.location.assign("http://localhost:8080/${student.student_id}/editstudent")
+        window.location.assign(url)
     }
 </script>
 </body>
