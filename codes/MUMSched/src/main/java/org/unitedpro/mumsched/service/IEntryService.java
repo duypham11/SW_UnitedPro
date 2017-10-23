@@ -1,5 +1,7 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.unitedpro.mumsched.domain.Entry;
 
 /**
@@ -15,4 +17,7 @@ public interface IEntryService {
     boolean update(Entry entry);
 
     Iterable<Entry> getAllEntry();
+    
+
+    List<Entry> getEntryList();
 }
