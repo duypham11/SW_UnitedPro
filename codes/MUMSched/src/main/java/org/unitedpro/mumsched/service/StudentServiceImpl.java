@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.service;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.StudentDAO;
@@ -41,5 +42,14 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public void updateStudent(Student student){
         studentDAO.save(student);
+    }
+
+    @Override
+    public void saveStudent(Student student, HttpServletRequest request) {
+        student.setFirstName(request.getParameter("firstName"));
+        student.setLastName(request.getParameter("lastName"));
+        student.setPassword(request.getParameter("password"));
+        student.setEmail(request.getParameter("email"));
+        student.setDOB(request.getParameter("DOB"));
     }
 }

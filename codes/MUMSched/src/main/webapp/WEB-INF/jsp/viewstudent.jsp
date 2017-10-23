@@ -28,6 +28,7 @@
             background-color: #dddddd;
         }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
 <table>
@@ -38,13 +39,21 @@
         <td><c:out value="Email" /></td>
     </tr>
     <c:forEach items="${students}" var="student">
-        <tr>
-            <td><c:out value="${student.student_id}" /></td>
+        <tr onclick="myFunction(${student.student_id})">
+            <td ><c:out value="${student.student_id}" /></td>
             <td><c:out value="${student.firstName}" /></td>
             <td><c:out value="${student.lastName}" /></td>
             <td><c:out value="${student.email}" /></td>
         </tr>
+
     </c:forEach>
+
 </table>
+<script>
+    function myFunction(studentId) {
+        url = "http://localhost:8080/" + studentId + "/" + "editstudent";
+        window.location.assign("http://localhost:8080/${student.student_id}/editstudent")
+    }
+</script>
 </body>
 </html>

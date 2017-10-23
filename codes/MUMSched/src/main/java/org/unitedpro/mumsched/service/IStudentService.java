@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.service;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.unitedpro.mumsched.domain.Student;
 
 /**
@@ -17,4 +18,6 @@ public interface IStudentService {
     void deleteStudent(Student student);
 
     void updateStudent(Student student);
+
+    void saveStudent(Student student, HttpServletRequest request);
 }
