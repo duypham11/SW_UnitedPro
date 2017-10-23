@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.service;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.unitedpro.mumsched.domain.Faculty;
 
 /**
@@ -14,5 +15,9 @@ public interface IFacultyService {
 
     boolean delete(Faculty faculty);
 
+    void deleteFacultyById(long id);
+
     boolean update(Faculty faculty);
+
+    void saveFaculty(Faculty student, HttpServletRequest request);
 }
