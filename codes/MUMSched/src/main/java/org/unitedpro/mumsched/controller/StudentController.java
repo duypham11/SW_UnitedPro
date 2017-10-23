@@ -105,4 +105,12 @@ public class StudentController {
         model.addAttribute("message",message);
         return "success";
     }
+
+    @RequestMapping(value = "/{studentId}/deletestudent",method = RequestMethod.GET)
+    public String deletestudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
+        studentService.deleteStudentById(studentId);
+        String message = "The student with ID " + studentId + " is deleted";
+        model.addAttribute("message",message);
+        return "success";
+    }
 }

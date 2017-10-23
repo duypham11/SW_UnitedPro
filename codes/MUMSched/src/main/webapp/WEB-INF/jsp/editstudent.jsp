@@ -21,7 +21,16 @@
     <input type="submit" value="Submit">
   </form>
 
+<button onclick="myFunction(${studentId})">Delete</button>
+
 
 <%@ include file="fragment/footer.html"%>
+
+<script>
+    function myFunction(studentId) {
+        url = "http://localhost:8080/" + studentId + "/" + "deletestudent";
+        window.location.assign(url)
+    }
+</script>
  </body>
 </html>
