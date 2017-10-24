@@ -1,8 +1,11 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.SectionDAO;
+import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Section;
 @Service
 public class SectionServiceImpl implements ISectionService {
@@ -33,5 +36,9 @@ public class SectionServiceImpl implements ISectionService {
 	public boolean update(Section section){
 		sectionDAO.save(section);
 		return true;
+	}
+	@Override
+	public List<Section> getSectionList() {
+		return sectionDAO.getSectionList();
 	}
 }
