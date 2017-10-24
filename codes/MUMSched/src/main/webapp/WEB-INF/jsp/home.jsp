@@ -129,10 +129,10 @@
 		<div class="dropdown">
 		  <button class="dropbtn">PROFILE</button>
 		  <div class="dropdown-content">
-		    <a href="#">READ</a>
-		    <a href="#">EDIT</a>
+		    <a onclick="viewStudent(${studentId})">VIEW</a>
 		  </div>
 		</div>
+
 		<div class="dropdown">
 		  <button class="dropbtn">VIEW SCHEDULE</button>
 		  <div class="dropdown-content">
@@ -156,6 +156,11 @@
             </div>
         </form>	
 	</div>
-    
+    <script>
+		function viewStudent(studentId) {
+            var url = "http://localhost:8080/" + studentId + "/" + "editstudent";
+            window.location.assign(url)
+        }
+	</script>
 </body>
 </html>
