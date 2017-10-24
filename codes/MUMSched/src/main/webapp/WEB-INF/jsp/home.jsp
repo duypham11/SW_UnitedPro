@@ -67,30 +67,24 @@
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">Course CRUD</button>
+		  <button class="dropbtn">Course Management</button>
 		  <div class="dropdown-content">
 		    <a href="#">Create</a>
-		    <a href="#">Read</a>
-		    <a href="#">Update</a>
-		    <a href="#">Delete</a>
+		    <a href="#">View</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">BLOCK CRUD</button>
+		  <button class="dropbtn">Block Management</button>
 		  <div class="dropdown-content">
 		    <a href="#">Create</a>
-		    <a href="#">Read</a>
-		    <a href="#">Update</a>
-		    <a href="#">Delete</a>
+		    <a href="#">View</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">ENTRY CRUD</button>
+		  <button class="dropbtn">Entry Management</button>
 		  <div class="dropdown-content">
 		    <a href="#">Create</a>
-		    <a href="#">Read</a>
-		    <a href="#">Update</a>
-		    <a href="#">Delete</a>
+		    <a href="#">View</a>
 		  </div>
 		</div>
 		<div class="dropdown">
