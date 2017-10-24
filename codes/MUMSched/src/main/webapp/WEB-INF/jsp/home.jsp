@@ -142,7 +142,7 @@
 		<div class="dropdown">
 		  <button class="dropbtn">REG SECTION</button>
 		  <div class="dropdown-content">
-		    <a href="#">Register Section</a>
+		    <a onclick="registerSection(${studentId})">Register Section</a>
 		  </div>
 		</div>
 	</sec:authorize>
@@ -159,6 +159,10 @@
     <script>
 		function viewStudent(studentId) {
             var url = "http://localhost:8080/" + studentId + "/" + "editstudent";
+            window.location.assign(url)
+        }
+        function registerSection(studentId) {
+            var url = "http://localhost:8080/" + studentId + "/" + "registersection";
             window.location.assign(url)
         }
 	</script>

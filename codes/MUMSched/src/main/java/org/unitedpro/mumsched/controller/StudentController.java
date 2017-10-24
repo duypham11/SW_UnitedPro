@@ -119,7 +119,6 @@ public class StudentController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
-        System.out.println("-------->Home screen");
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         student = studentService.findStudentByEmail(userDetails.getUsername());
         model.addAttribute("studentId",student.getStudent_id());
