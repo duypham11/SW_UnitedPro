@@ -1,8 +1,8 @@
 package org.unitedpro.mumsched.service;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 import java.util.Set;
 
@@ -13,6 +13,18 @@ public class UserDetailsImpl implements UserDetails {
     private String username;
     private String password;
     private Boolean enabled = true;
+//    private long id;
+//
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+
+
+
 
     public void setAuthorities(Set<GrantedAuthority> grantedAuthorities) {
         this.authorities = grantedAuthorities;

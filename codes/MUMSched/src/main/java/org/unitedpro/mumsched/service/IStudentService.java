@@ -20,4 +20,6 @@ public interface IStudentService {
     void updateStudent(Student student);
 
     void saveStudent(Student student, HttpServletRequest request);
+
+    Student findStudentByEmail(String email);
 }

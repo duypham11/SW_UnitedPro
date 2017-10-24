@@ -52,4 +52,9 @@ public class StudentServiceImpl implements IStudentService {
         student.setEmail(request.getParameter("email"));
         student.setDOB(request.getParameter("DOB"));
     }
+
+    @Override
+    public Student findStudentByEmail(String email) {
+        return studentDAO.findStudentByEmail(email);
+    }
 }
