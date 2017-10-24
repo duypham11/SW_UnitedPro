@@ -18,35 +18,31 @@ public class EntryAdminController {
 	@Autowired
 	IEntryService entryService;
 	
-	@RequestMapping(value="/list", method = RequestMethod.GET)
+	@RequestMapping(value="/entry_list", method = RequestMethod.GET)
 	public ModelAndView list() {		
 		ModelAndView model = new ModelAndView("admin/entry_list");
-		List<Entry> entryList = entryService.getEntryList();		
+		List<Entry> entryList = entryService.getEntryList();				
 		System.out.println("======list===" + entryList.size());
-		model.addObject("list", entryList);		
+		model.addObject("entry_list", entryList);		
 		return model;
 	}
 	
-	@RequestMapping(value="/update/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/update_entry/{id}", method = RequestMethod.GET)
 	public ModelAndView update(@PathVariable("id") long id) {
 		System.out.println("======update===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
 		return model.addObject("entryForm", entry);		
-		//return new ModelAndView("redirect:/admin/list");
 	}	
-	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/delete_entry/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable("id") long id) {
-		
-		//ModelAndView model = new ModelAndView("admin/entryform");
 		Entry entry = entryService.getEntryById(id);
 		System.out.println("======delete===" + entry.getEntry_id());
 		entryService.delete(entry);
-		//model.addObject("entryForm", entry);		
-		return new ModelAndView("redirect:/admin/list");
+		return new ModelAndView("redirect:/admin/entry_list");
 	}	
 	
-	@RequestMapping(value="/add", method = RequestMethod.GET)
+	@RequestMapping(value="/add_entry", method = RequestMethod.GET)
 	public ModelAndView add() {
 		System.out.println("======add===" );
 		ModelAndView model = new ModelAndView("admin/entryform");
@@ -54,18 +50,12 @@ public class EntryAdminController {
 		model.addObject("entryForm", entry);		
 		return model;
 	}	
-	
 
-	@RequestMapping(value="/add", method = RequestMethod.POST)
+	@RequestMapping(value="/save_entry", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entryForm") Entry entry) {
 		System.out.println("======save===" );
 		entryService.save(entry);		
-		return new ModelAndView("redirect:/admin/list");
+		return new ModelAndView("redirect:/admin/entry_list");
 	}	
-	@RequestMapping(value="/update/{id}", method = RequestMethod.POST)
-	public ModelAndView save1(@ModelAttribute("entryForm") Entry entry) {
-		System.out.println("======save=111==" );
-		entryService.save(entry);		
-		return new ModelAndView("redirect:/admin/list");
-	}
+
 }

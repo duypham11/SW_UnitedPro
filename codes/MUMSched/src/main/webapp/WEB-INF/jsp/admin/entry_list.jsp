@@ -12,8 +12,8 @@
 
 <%@ include file="../fragment/header.html"  %>
 
-<spring:url value="/admin/add" var="addURL"/>
-<a href="${addURL}">Add New Entry</a>
+<spring:url value="/admin/add_entry" var="addEntryURL"/>
+<a href="${addEntryURL}">Add New Entry</a>
 
 <table width = 100% border="1">
 	<tr>
@@ -26,7 +26,7 @@
 		<td>Total: </td>
 		<td colspan="2">Action</td>
 	</tr>
-	<c:forEach items="${list}" var="entry">
+	<c:forEach items="${entry_list}" var="entry">
 	<tr>
 		<td>${entry.entryName} </td>
 		<td>${entry.noFPP} </td>
@@ -36,12 +36,12 @@
 		<td>${entry.noOfUSRes} </td>
 		<td>${entry.noOfUSRes + entry.noFPP + entry.noMPP + entry.noOPTFPP + entry.noOPTMPP} </td>
  		<td>
-			<spring:url value="/admin/update/${entry.entry_id}" var="updateURL" />
-			<a href="${updateURL}">Update</a>
+			<spring:url value="/admin/update_entry/${entry.entry_id}" var="updateEntryURL" />
+			<a href="${updateEntryURL}">Update</a>
 		</td>
 		<td>
-			<spring:url value="/admin/delete/${entry.entry_id}" var="deleteURL" />
-			<a href="${deleteURL}">Delete</a>
+			<spring:url value="/admin/delete_entry/${entry.entry_id}" var="deleteEntryURL" />
+			<a href="${deleteEntryURL}">Delete</a>
 		</td>
 	</tr>
 	</c:forEach>

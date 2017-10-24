@@ -1,5 +1,7 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.BlockDAO;
@@ -35,5 +37,10 @@ public class BlockServiceImpl implements IBlockService {
 	@Override
 	public Iterable<Block> getAllBlock() {
 		return blockDAO.findAll();
+	}
+
+	@Override
+	public List<Block> getBlockList() {
+		return blockDAO.getBlockList();
 	}
 }

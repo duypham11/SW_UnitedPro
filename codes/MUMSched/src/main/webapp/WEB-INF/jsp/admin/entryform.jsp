@@ -9,12 +9,12 @@
 <title>Entry Management</title>
 </head>
 <body>
-<spring:url value="/admin/save" var="saveURL"/>
+<spring:url value="/admin/save_entry" var="saveEntryURL"/>
 
 
 <%@ include file="../fragment/header.html"  %>
 
-<form:form action="${saveURL}" method="POST" modelAttribute ="entryForm">
+<form:form action="${saveEntryURL}" method="POST" modelAttribute ="entryForm">
 	<form:hidden path = "entry_id"/>
 	<table>
 		<tr>

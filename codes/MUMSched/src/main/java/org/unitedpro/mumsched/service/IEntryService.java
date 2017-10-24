@@ -16,8 +16,7 @@ public interface IEntryService {
 
     boolean update(Entry entry);
 
-    Iterable<Entry> getAllEntry();
-    
+    Iterable<Entry> getAllEntry();    
 
     List<Entry> getEntryList();
 }

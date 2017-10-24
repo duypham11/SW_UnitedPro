@@ -44,7 +44,5 @@ public class EntryServiceImpl implements IEntryService {
 	@Override
 	public List<Entry> getEntryList() {
 		return entryDAO.getEntryList();
-	}
-
-	
+	}	
 }

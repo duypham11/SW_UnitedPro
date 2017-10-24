@@ -1,5 +1,7 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.unitedpro.mumsched.domain.Section;
 
 /**
@@ -15,4 +17,6 @@ public interface ISectionService {
     boolean delete(Section section);
 
     boolean update(Section section);
+    
+    List<Section> getSectionList();
 }
