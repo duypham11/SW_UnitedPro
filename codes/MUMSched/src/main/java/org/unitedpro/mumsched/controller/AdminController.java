@@ -6,5 +6,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class AdminController {
-
+	
 }

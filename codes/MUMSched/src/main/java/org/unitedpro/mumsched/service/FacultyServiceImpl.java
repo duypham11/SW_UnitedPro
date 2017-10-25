@@ -1,9 +1,12 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.FacultyDAO;
+import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.domain.Faculty;
 @Service
 public class FacultyServiceImpl implements IFacultyService {
@@ -56,4 +59,9 @@ public class FacultyServiceImpl implements IFacultyService {
 		return facultyDAO.findFacultyByEmail(email);
 	}
 
+    
+    @Override
+	public List<Faculty> getFacultyList() {
+		return facultyDAO.getFacultyList();
+	}	
 }

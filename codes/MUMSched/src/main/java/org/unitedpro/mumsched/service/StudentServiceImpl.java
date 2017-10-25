@@ -1,9 +1,13 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.StudentDAO;
+import org.unitedpro.mumsched.domain.Course;
+import org.unitedpro.mumsched.domain.Faculty;
 import org.unitedpro.mumsched.domain.Student;
 
 /**
@@ -57,4 +61,20 @@ public class StudentServiceImpl implements IStudentService {
     public Student findStudentByEmail(String email) {
         return studentDAO.findStudentByEmail(email);
     }
+    
+    @Override
+	public List<Student> getStudentList() {
+		return studentDAO.getStudentList();
+	}
+    
+    @Override
+	public void save(Student student) {
+		studentDAO.save(student);
+	}
+    
+    @Override
+	public boolean delete(Student student) {
+		studentDAO.delete(student);
+		return true;
+	}
 }

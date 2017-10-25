@@ -12,8 +12,8 @@
 
 <%@ include file="../fragment/header.html"  %>
 
-<spring:url value="/admin/add_couse" var="addCourseURL"/>
-<a href="${addBlockURL}">Add New Course</a>
+<spring:url value="/admin/add_course" var="addCourseURL"/>
+<a href="${addCourseURL}">Add New Course</a>
 
 <table width = 100% border="1">
 	<tr>

@@ -124,6 +124,13 @@ public class StudentController {
         model.addAttribute("message",message);
         return "success";
     }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//        student = studentService.findStudentByEmail(userDetails.getUsername());
+//        model.addAttribute("studentId",student.getStudent_id());
+//        return "home";
+//    }
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

@@ -60,17 +60,17 @@
 		<div class="dropdown">
 		  <button class="dropbtn">USER PROFILE</button>
 		  <div class="dropdown-content">
-		    <a href="#">Create</a>
-		    <a href="#">Read</a>
-		    <a href="#">Update</a>
-		    <a href="#">Delete</a>
+		    <a href="/admin/add_student">New Student</a>
+		    <a href="/admin/student_list">View Students</a>
+		    <a href="/admin/add_faculty">New Faculty</a>
+		    <a href="/admin/faculty_list">View Faculties</a>
 		  </div>
 		</div>
 		<div class="dropdown">
 		  <button class="dropbtn">Course Admin</button>
 		  <div class="dropdown-content">
-		    <a href="#">Create</a>
-		    <a href="#">View</a>
+		    <a href="/admin/add_course">New Course</a>
+		    <a href="/admin/course_list">View Courses</a>
 		  </div>
 		</div>
 		<div class="dropdown">
