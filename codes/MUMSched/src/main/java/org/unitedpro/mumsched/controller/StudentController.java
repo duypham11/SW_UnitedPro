@@ -2,13 +2,12 @@ package org.unitedpro.mumsched.controller;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.unitedpro.mumsched.domain.Course;
 import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Student;
 import org.unitedpro.mumsched.domain.Student_Section;
@@ -16,6 +15,8 @@ import org.unitedpro.mumsched.service.ISectionService;
 import org.unitedpro.mumsched.service.IStudentSectionService;
 import org.unitedpro.mumsched.service.IStudentService;
 import org.unitedpro.mumsched.service.UserDetailsImpl;
+
+import java.util.Iterator;
 
 /**
  * Created by Duong Truong on 10/13/2017.
@@ -31,7 +32,7 @@ public class StudentController {
     @Autowired
     private IStudentSectionService studentSectionService;
 
-    private Student student;
+    private static Student student;
 
     private Section section;
 
@@ -60,28 +61,36 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/registersection", method = RequestMethod.GET)
-    public String registersection(@PathVariable("studentId") long studentId, Model model){
-        model.addAttribute("studentId",studentId);
+    @RequestMapping(value = "/registersection", method = RequestMethod.GET)
+    public String registersection(Model model){
+        model.addAttribute("sections",sectionService.getAllSection());
+        model.addAttribute("studentId",student.getStudent_id());
         return "registersection";
     }
 
-    @RequestMapping(value = "/{studentId}/register",method = RequestMethod.POST)
-    public String register(@PathVariable("studentId") long studentId, HttpServletRequest request, Model model){
-        long sectionId = Long.parseLong(request.getParameter("sectionId"));
-        section = sectionService.getSectionById(sectionId);
-        student = studentService.getStudentById(studentId);
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String register(HttpServletRequest request, Model model) throws Exception {
 
+        long sectionId = Long.parseLong(request.getParameter("sectionId"));
+
+        section = sectionService.getSectionById(sectionId);
+
+        if(checkPreCourse(student.getStudent_id(),section.getCourse())){
+            throw new Exception("The Course has a perquisite course need to be completed");
+        }
         student_section = new Student_Section();
         student_section.setStudent(student);
         student_section.setSection(section);
         student_section.setApproved(false);
-        student.addStudentSection(student_section);
-        section.addStudentSection(student_section);
+//        student.addStudentSection(student_section);
+//        section.addStudentSection(student_section);
 
-        studentService.updateStudent(student);
-        sectionService.update(section);
+//        studentService.updateStudent(student);
+//        sectionService.update(section);
 
+
+        long idExists = studentSectionService.findBySs_idExists();
+        student_section.setSs_id(idExists+1);
         studentSectionService.save(student_section);
 
         String message = "You have register the Section: " + section.getSectionName() +
@@ -90,17 +99,16 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.GET)
-    public String editstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        model.addAttribute("studentId",studentId);
-        student = studentService.getStudentById(studentId);
+    @RequestMapping(value = "/editstudent",method = RequestMethod.GET)
+    public String editstudent(Model model){
+        model.addAttribute("studentId",student.getStudent_id());
         model.addAttribute("student",student);
+        model.addAttribute("sections",studentSectionService.getAllByStudent(student.getStudent_id()));
         return "editstudent";
     }
 
-    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.POST)
-    public String editedstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        student = studentService.getStudentById(studentId);
+    @RequestMapping(value = "/editstudent",method = RequestMethod.POST)
+    public String editedstudent(HttpServletRequest request,Model model){
         studentService.saveStudent(student,request);
         studentService.updateStudent(student);
 
@@ -109,21 +117,37 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/deletestudent",method = RequestMethod.GET)
-    public String deletestudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        studentService.deleteStudentById(studentId);
-        String message = "The student with ID " + studentId + " is deleted";
+    @RequestMapping(value = "/deletestudent",method = RequestMethod.GET)
+    public String deletestudent(Model model){
+        studentService.deleteStudentById(student.getStudent_id());
+        String message = "The student with ID " + student.getStudent_id() + " is deleted";
         model.addAttribute("message",message);
         return "success";
     }
 
 
-/*    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
-        System.out.println("-------->Home screen");
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String getstudent(Authentication authentication, Model model){
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        student = studentService.findStudentByEmail(userDetails.getUsername());
-        model.addAttribute("studentId",student.getStudent_id());
+        if(authentication.getAuthorities().toString().equals("[ROLE_STUDENT]")){
+            student = studentService.findStudentByEmail(userDetails.getUsername());
+        }
+
         return "home";
-    }*/
+    }
+
+    public Boolean checkPreCourse(long studentId, Course course){
+        if(course.getPreCourses().size() == 0){
+            return false;
+        }
+
+        Iterable<Section> PreCourseIterate = studentSectionService.getAllByStudent(studentId);
+        for (Iterator<Section> it = PreCourseIterate.iterator(); it.hasNext(); ) {
+            Section section = it.next();
+            if(course.getPreCourses().contains(section.getCourse())){
+                return false;
+            }
+        }
+        return true;
+    }
 }

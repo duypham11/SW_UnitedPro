@@ -10,7 +10,7 @@
 
 <%@ include file="fragment/header.html"  %>
 
-<h1>Student ID: ${facultyId}</h1>
+<h1>Faculty Profile</h1>
 
 <form action="editfaculty" method="post" var="${faculty}">
     First Name: <input type="text" name="firstName" id="firstName" value="${faculty.firstName}">

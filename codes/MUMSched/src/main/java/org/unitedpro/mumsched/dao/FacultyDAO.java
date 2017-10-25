@@ -6,4 +6,5 @@ import org.unitedpro.mumsched.domain.Faculty;
 
 @Repository
 public interface FacultyDAO extends  CrudRepository<Faculty, Long>{
+    Faculty findFacultyByEmail(String email);
 }

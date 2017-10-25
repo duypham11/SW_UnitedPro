@@ -29,13 +29,12 @@
 			<td>Available Seats: </td>
 			<td><form:input type="number" path="availableSeats"/>
 		</tr>		
-
 		<tr>
 			<td>Block: </td> 
  			<td>
-			<form:select path="${BlockList.blockName}">
-			<form:option value="NONE"> --SELECT--</form:option>
-			<form:options items="${BlockList}"></form:options>
+			<form:select path="block" modelAttribute ="block">
+			<form:option value="0 "> --SELECT--</form:option>
+			<form:options items="${blockList}" itemValue="block_id" itemLabel="blockName"/>
 			</form:select>
 			</td>	
 		</tr>

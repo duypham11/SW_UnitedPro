@@ -11,4 +11,7 @@ import org.unitedpro.mumsched.domain.Student_Section;
 public interface StudentSectionDAO extends CrudRepository<Student_Section, Long> {
     @Query(value = "select ss.section from Student_Section ss where ss.student.student_id = :id")
    Iterable<Section> getAllByStudent_Student_id(@Param("id") long studentid);
+
+    @Query(value = "select max(ss.ss_id) from Student_Section ss")
+    long findBySs_idExists();
 }

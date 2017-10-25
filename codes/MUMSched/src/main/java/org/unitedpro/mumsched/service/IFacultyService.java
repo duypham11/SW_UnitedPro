@@ -20,4 +20,6 @@ public interface IFacultyService {
     boolean update(Faculty faculty);
 
     void saveFaculty(Faculty student, HttpServletRequest request);
+
+    Faculty findFacultyByEmail(String email);
 }

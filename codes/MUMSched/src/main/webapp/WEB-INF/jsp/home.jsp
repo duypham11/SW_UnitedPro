@@ -120,8 +120,7 @@
 		<div class="dropdown">
 		  <button class="dropbtn">PROFILE</button>
 		  <div class="dropdown-content">
-		    <a href="#">READ</a>
-		    <a href="#">EDIT</a>
+		    <a href="editfaculty">EDIT</a>
 		  </div>
 		</div>
 		<div class="dropdown">
@@ -136,7 +135,7 @@
 		<div class="dropdown">
 		  <button class="dropbtn">PROFILE</button>
 		  <div class="dropdown-content">
-		    <a onclick="viewStudent(${studentId})">VIEW</a>
+		    <a href="editstudent">VIEW</a>
 		  </div>
 		</div>
 
@@ -149,7 +148,7 @@
 		<div class="dropdown">
 		  <button class="dropbtn">REG SECTION</button>
 		  <div class="dropdown-content">
-		    <a href="#">Register Section</a>
+		    <a href="registersection">Register Section</a>
 		  </div>
 		</div>
 	</sec:authorize>
@@ -163,11 +162,5 @@
             </div>
         </form>	
 	</div>
-    <script>
-		function viewStudent(studentId) {
-            var url = "http://localhost:8080/" + studentId + "/" + "editstudent";
-            window.location.assign(url)
-        }
-	</script>
 </body>
 </html>

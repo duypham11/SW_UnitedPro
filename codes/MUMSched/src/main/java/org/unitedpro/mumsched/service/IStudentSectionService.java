@@ -14,4 +14,8 @@ public interface IStudentSectionService {
     boolean update(Student_Section studentsection);
 
     Iterable<Section> getAllByStudent(long studentId);
+
+    Iterable<Student_Section> findAll();
+
+    long findBySs_idExists();
 }

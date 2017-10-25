@@ -1,5 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <%-- <%@ taglib prefix="b" uri="http://www.springframework.org/tags/form" %>
  --%>
 <!DOCTYPE HTML>
@@ -21,7 +23,7 @@
 		<td>Start Date: </td>
 		<td>End Date: </td>
 		<td>Entry: </td>
-		<td>yyy: </td>
+		<td>Number Sections: </td>
 
 		<td colspan="2">Action</td>
 	</tr>
@@ -31,8 +33,7 @@
 		<td>${block.startDate} </td>
 		<td>${block.endDate} </td>
 		<td>${block.entry.entryName}</td>
-		<td>yyy</td>
-
+		<td>${fn:length(block.sections)}</td>
  		<td>
 			<spring:url value="/admin/update_block/${block.block_id}" var="updateBlockURL" />
 			<a href="${updateBlockURL}">Update</a>

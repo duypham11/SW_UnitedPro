@@ -2,15 +2,19 @@ package org.unitedpro.mumsched.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Section;
+import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.service.IBlockService;
 import org.unitedpro.mumsched.service.IEntryService;
@@ -40,6 +44,8 @@ public class SectionAdminController {
 		System.out.println("======update==section=" );
 		ModelAndView model = new ModelAndView("admin/sectionform");
 		Section section = sectionService.getSectionById(id);
+		List<Block> blockList = blockService.getBlockList();
+		model.addObject("blockList", blockList);
 		return model.addObject("sectionForm", section);		
 	}
 	
@@ -56,16 +62,18 @@ public class SectionAdminController {
 		System.out.println("======add=section==" );
 		ModelAndView model = new ModelAndView("admin/sectionform");
 		Section section = new Section();
-		List<Entry> entryList = entryService.getEntryList();
+		List<Block> blockList = blockService.getBlockList();
 		model.addObject("sectionForm", section);
-		model.addObject("entryList", entryList);
+		model.addObject("blockList", blockList);
 		return model;
 	}	
 
 	@RequestMapping(value="/save_section", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("sectionForm") Section section) {
+	public ModelAndView save(@ModelAttribute("block") @Valid Block block, BindingResult bindingResultBlock,
+				@ModelAttribute("sectionForm") @Valid Section section, BindingResult bindingResultSection) {
 		System.out.println("======save==section=" );
 		sectionService.save(section);		
 		return new ModelAndView("redirect:/admin/section_list");
 	}	
 }
+

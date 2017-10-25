@@ -21,16 +21,27 @@
     <input type="submit" value="Submit">
   </form>
 
-<button onclick="myFunction(${studentId})">Delete</button>
+<table width = 100% border="1"> List of Section registered
+    <tr>
+        <td><c:out value="Section ID" /></td>
+        <td><c:out value="Section Name" /></td>
+        <td><c:out value="Course" /></td>
+        <td><c:out value="Block" /></td>
+    </tr>
+    <c:forEach items="${sections}" var="section">
+        <tr>
+            <td ><c:out value="${section.section_id}" /></td>
+            <td><c:out value="${section.sectionName}" /></td>
+            <td><c:out value="${section.course.courseName}" /></td>
+            <td><c:out value="${section.block.blockName}" /></td>
+        </tr>
+
+    </c:forEach>
+
+</table>
 
 
 <%@ include file="fragment/footer.html"%>
 
-<script>
-    function myFunction(studentId) {
-        url = "http://localhost:8080/" + studentId + "/" + "deletestudent";
-        window.location.assign(url)
-    }
-</script>
  </body>
 </html>
