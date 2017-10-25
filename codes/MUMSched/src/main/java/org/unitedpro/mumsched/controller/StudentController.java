@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.unitedpro.mumsched.domain.Course;
 import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Student;
 import org.unitedpro.mumsched.domain.Student_Section;
@@ -14,6 +15,8 @@ import org.unitedpro.mumsched.service.ISectionService;
 import org.unitedpro.mumsched.service.IStudentSectionService;
 import org.unitedpro.mumsched.service.IStudentService;
 import org.unitedpro.mumsched.service.UserDetailsImpl;
+
+import java.util.Iterator;
 
 /**
  * Created by Duong Truong on 10/13/2017.
@@ -66,10 +69,15 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String register(HttpServletRequest request, Model model){
+    public String register(HttpServletRequest request, Model model) throws Exception {
 
         long sectionId = Long.parseLong(request.getParameter("sectionId"));
+
         section = sectionService.getSectionById(sectionId);
+
+        if(checkPreCourse(student.getStudent_id(),section.getCourse())){
+            throw new Exception("The Course has a perquisite course need to be completed");
+        }
         student_section = new Student_Section();
         student_section.setStudent(student);
         student_section.setSection(section);
@@ -95,6 +103,7 @@ public class StudentController {
     public String editstudent(Model model){
         model.addAttribute("studentId",student.getStudent_id());
         model.addAttribute("student",student);
+        model.addAttribute("sections",studentSectionService.getAllByStudent(student.getStudent_id()));
         return "editstudent";
     }
 
@@ -125,5 +134,20 @@ public class StudentController {
         }
 
         return "home";
+    }
+
+    public Boolean checkPreCourse(long studentId, Course course){
+        if(course.getPreCourses().size() == 0){
+            return false;
+        }
+
+        Iterable<Section> PreCourseIterate = studentSectionService.getAllByStudent(studentId);
+        for (Iterator<Section> it = PreCourseIterate.iterator(); it.hasNext(); ) {
+            Section section = it.next();
+            if(course.getPreCourses().contains(section.getCourse())){
+                return false;
+            }
+        }
+        return true;
     }
 }
