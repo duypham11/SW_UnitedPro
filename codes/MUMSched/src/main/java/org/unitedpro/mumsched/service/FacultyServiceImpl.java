@@ -50,4 +50,10 @@ public class FacultyServiceImpl implements IFacultyService {
 		faculty.setEmail(request.getParameter("email"));
 		faculty.setDOB(request.getParameter("DOB"));
     }
+
+	@Override
+	public Faculty findFacultyByEmail(String email) {
+		return facultyDAO.findFacultyByEmail(email);
+	}
+
 }

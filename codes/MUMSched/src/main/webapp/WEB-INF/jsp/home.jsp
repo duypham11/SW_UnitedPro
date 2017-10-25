@@ -120,8 +120,7 @@
 		<div class="dropdown">
 		  <button class="dropbtn">PROFILE</button>
 		  <div class="dropdown-content">
-		    <a href="#">READ</a>
-		    <a href="#">EDIT</a>
+		    <a href="editfaculty">EDIT</a>
 		  </div>
 		</div>
 		<div class="dropdown">
