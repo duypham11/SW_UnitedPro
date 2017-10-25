@@ -19,7 +19,7 @@ public class FacultyController {
     @Autowired
     private IFacultyService facultyService;
 
-    private Faculty faculty;
+    public static Faculty faculty = new Faculty();
 
     @RequestMapping(value = "/viewfaculty",method = RequestMethod.GET)
     public Iterable<Faculty> viewfaculty(Model model){
@@ -51,7 +51,9 @@ public class FacultyController {
     }
 
     @RequestMapping(value = "/editfaculty",method = RequestMethod.POST)
-    public String editedfaculty(HttpServletRequest request,Model model){
+    public String editedfaculty(Authentication authentication, HttpServletRequest request, Model model){
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        faculty = facultyService.findFacultyByEmail(userDetails.getUsername());
         facultyService.saveFaculty(faculty, request);
         facultyService.update(faculty);
 
@@ -68,10 +70,10 @@ public class FacultyController {
         return "success";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getfaculty(HttpServletRequest request, Authentication authentication, Model model){
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        faculty = facultyService.findFacultyByEmail(userDetails.getUsername());
-        return "home";
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String getfaculty(HttpServletRequest request, Authentication authentication, Model model){
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//        faculty = facultyService.findFacultyByEmail(userDetails.getUsername());
+//        return "home";
+//    }
 }

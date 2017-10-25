@@ -114,9 +114,12 @@ public class StudentController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
+    public String getstudent(Authentication authentication, Model model){
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        student = studentService.findStudentByEmail(userDetails.getUsername());
+        if(authentication.getAuthorities().toString().equals("[ROLE_STUDENT]")){
+            student = studentService.findStudentByEmail(userDetails.getUsername());
+        }
+
         return "home";
     }
 }
