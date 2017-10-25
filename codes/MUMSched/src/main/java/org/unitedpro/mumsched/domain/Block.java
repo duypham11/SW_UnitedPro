@@ -1,6 +1,5 @@
 package org.unitedpro.mumsched.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,8 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.JoinColumn;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -43,13 +40,14 @@ public class Block {
     private Entry entry;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
+    //@Temporal(TemporalType.DATE)
+    private String startDate;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+    //@Temporal(TemporalType.DATE)
+    private String endDate;
 
+    //public Block(String name, Date sDate, Date eDate, )
 	public long getBlock_id() {
 		return block_id;
 	}
@@ -73,19 +71,19 @@ public class Block {
 		this.entry = entry;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

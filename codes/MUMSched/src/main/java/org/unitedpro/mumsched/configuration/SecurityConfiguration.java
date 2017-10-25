@@ -29,13 +29,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
+	@Autowired
 	public DaoAuthenticationProvider daoAuthenticationProvider(UserDetailsService userDetailsService) {
 
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(userDetailsService);
 		return daoAuthenticationProvider;
 	}
-
+	
+	@Autowired
 	private AuthenticationProvider authenticationProvider;
 
 	@Autowired

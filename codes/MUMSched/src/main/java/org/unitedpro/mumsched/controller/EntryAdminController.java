@@ -3,6 +3,7 @@ package org.unitedpro.mumsched.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,7 +54,7 @@ public class EntryAdminController {
 
 	@RequestMapping(value="/save_entry", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entryForm") Entry entry) {
-		System.out.println("======save===" );
+		System.out.println("======save===" + entry.getEntry_id());
 		entryService.save(entry);		
 		return new ModelAndView("redirect:/admin/entry_list");
 	}	
