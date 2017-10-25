@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Block;
+import org.unitedpro.mumsched.domain.Course;
 import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.service.IBlockService;
+import org.unitedpro.mumsched.service.ICourseService;
 import org.unitedpro.mumsched.service.IEntryService;
 import org.unitedpro.mumsched.service.ISectionService;
 
@@ -29,6 +31,8 @@ public class SectionAdminController {
 	private IEntryService entryService;	
 	@Autowired
 	private ISectionService sectionService;
+	@Autowired
+	private ICourseService courseService;
 	
 	@RequestMapping(value="/section_list", method = RequestMethod.GET)
 	public ModelAndView list() {		
@@ -46,6 +50,9 @@ public class SectionAdminController {
 		Section section = sectionService.getSectionById(id);
 		List<Block> blockList = blockService.getBlockList();
 		model.addObject("blockList", blockList);
+		
+		List<Course> courseList = courseService.getCourseList();
+		model.addObject("courseList", courseList);		
 		return model.addObject("sectionForm", section);		
 	}
 	
@@ -62,9 +69,13 @@ public class SectionAdminController {
 		System.out.println("======add=section==" );
 		ModelAndView model = new ModelAndView("admin/sectionform");
 		Section section = new Section();
+		List<Course> courseList = courseService.getCourseList();
 		List<Block> blockList = blockService.getBlockList();
+		
 		model.addObject("sectionForm", section);
 		model.addObject("blockList", blockList);
+		model.addObject("courseList", courseList);
+
 		return model;
 	}	
 

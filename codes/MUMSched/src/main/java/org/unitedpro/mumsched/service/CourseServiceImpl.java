@@ -1,5 +1,7 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.CourseDAO;
@@ -37,5 +39,9 @@ public class CourseServiceImpl implements ICourseService {
 	public boolean update(Course course){
 		courseDAO.save(course);
 		return true;
+	}
+	@Override
+	public List<Course> getCourseList() {
+		return courseDAO.getCourseList();
 	}
 }

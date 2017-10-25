@@ -1,5 +1,8 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
+import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Course;
 
 /**
@@ -17,4 +20,6 @@ public interface ICourseService {
     boolean update(Course course);
 
     Iterable<Course> getAllCourse();
+    
+    List<Course> getCourseList();
 }

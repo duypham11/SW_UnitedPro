@@ -17,6 +17,15 @@
 <form:form action="${saveSectionURL}" method="POST" modelAttribute ="sectionForm">
 	<form:hidden path = "section_id"/>
 	<table>
+			<tr>
+			<td>Course: </td> 
+ 			<td>
+			<form:select path="course" modelAttribute ="course">
+			<form:option value="0 "> --SELECT--</form:option>
+			<form:options items="${courseList}" itemValue="course_id" itemLabel="courseName"/>
+			</form:select>
+			</td>	
+		</tr>
 		<tr>
 			<td>Section Name: </td>
 			<td><form:input path="sectionName"/>

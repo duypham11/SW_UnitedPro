@@ -24,7 +24,7 @@
 		<td>End Date: </td>
 		<td>Entry: </td>
 		<td>Number Sections: </td>
-
+		<td>Sections: </td>
 		<td colspan="2">Action</td>
 	</tr>
 	<c:forEach items="${block_list}" var="block">
@@ -34,6 +34,12 @@
 		<td>${block.endDate} </td>
 		<td>${block.entry.entryName}</td>
 		<td>${fn:length(block.sections)}</td>
+		<td> 
+		    <c:forEach items="${block.sections}" var="section">
+         	<td>$section.sectionName</td>
+    		</c:forEach>
+		</td>
+		
  		<td>
 			<spring:url value="/admin/update_block/${block.block_id}" var="updateBlockURL" />
 			<a href="${updateBlockURL}">Update</a>

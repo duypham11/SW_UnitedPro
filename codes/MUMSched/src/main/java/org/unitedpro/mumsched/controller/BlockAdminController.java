@@ -31,12 +31,15 @@ public class BlockAdminController {
 		ModelAndView model = new ModelAndView("admin/block_list");
 		List<Block> blockList = blockService.getBlockList();				
 		System.out.println("======list=block==" + blockList.size());
-		/*String sections = "";
+		String sections = "";
 		for(Block b: blockList){
 			for(Section s: b.getSections()) {
-				sections += s.getSectionName() +"(" + s.getRoomNo()+")"
+				sections += s.getSectionName() +"(" + s.getRoomNo()+")";
 			}
-		}*/
+			System.out.println("======list=block==" + sections);
+			sections="";
+			
+		}
 		model.addObject("block_list", blockList);		
 		return model;
 	}
