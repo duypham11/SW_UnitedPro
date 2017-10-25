@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Entry;
+import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.service.IBlockService;
 import org.unitedpro.mumsched.service.IEntryService;
 
@@ -30,6 +31,12 @@ public class BlockAdminController {
 		ModelAndView model = new ModelAndView("admin/block_list");
 		List<Block> blockList = blockService.getBlockList();				
 		System.out.println("======list=block==" + blockList.size());
+		/*String sections = "";
+		for(Block b: blockList){
+			for(Section s: b.getSections()) {
+				sections += s.getSectionName() +"(" + s.getRoomNo()+")"
+			}
+		}*/
 		model.addObject("block_list", blockList);		
 		return model;
 	}

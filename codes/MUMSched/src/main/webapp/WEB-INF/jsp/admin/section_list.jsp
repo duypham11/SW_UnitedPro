@@ -20,7 +20,8 @@
 		<td>Section Name: </td>
 		<td>Room: </td>
 		<td>Available Seats: </td>
-		<td>yyy: </td>
+		<td>Course: </td>
+		<td>Block: </td>
 
 		<td colspan="2">Action</td>
 	</tr>
@@ -30,7 +31,8 @@
 		<%-- <td>${section.facultys.firstName} + " " ${section.facultys.lastName}</td> --%>
 		<td>${section.roomNo} </td>
 		<td>${section.availableSeats}</td>
-		<td>yyy</td>
+		<td>${section.course.courseName}</td>
+		<td>${section.block.blockName}</td>
 
  		<td>
 			<spring:url value="/admin/update_section/${section.section_id}" var="updateSectionURL" />

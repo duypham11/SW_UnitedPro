@@ -29,7 +29,6 @@
 			<td>Available Seats: </td>
 			<td><form:input type="number" path="availableSeats"/>
 		</tr>		
-
 		<tr>
 			<td>Block: </td> 
  			<td>
