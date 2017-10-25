@@ -16,7 +16,6 @@
 
 <form:form action="${saveBlockURL}" method="POST" modelAttribute ="blockForm">
 	<form:hidden path = "block_id"/>
-	<%-- <form:hidden path = "entry.entry_id"/> --%>
 	<table>
 		<tr>
 			<td>Block Name: </td>
