@@ -50,6 +50,7 @@ public class Block {
     @Temporal(TemporalType.DATE)
     private Date endDate;
 
+    //public Block(String name, Date sDate, Date eDate, )
 	public long getBlock_id() {
 		return block_id;
 	}

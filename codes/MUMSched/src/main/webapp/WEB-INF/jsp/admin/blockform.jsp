@@ -16,6 +16,7 @@
 
 <form:form action="${saveBlockURL}" method="POST" modelAttribute ="blockForm">
 	<form:hidden path = "block_id"/>
+	<%-- <form:hidden path = "entry.entry_id"/> --%>
 	<table>
 		<tr>
 			<td>Block Name: </td>
@@ -33,9 +34,9 @@
 		<tr>
 			<td>Entry: </td> 
  			<td>
-			<form:select path="${EntryList.entryName}">
-			<form:option value="NONE"> --SELECT--</form:option>
-			<form:options items="${EntryList}"></form:options>
+			<form:select path="entry" modelAttribute ="entry">
+			<form:option value="0 "> --SELECT--</form:option>
+			<form:options items="${entryList}" itemValue="entry_id" itemLabel="entryName"/>
 			</form:select>
 			</td>	
 		</tr>

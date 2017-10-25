@@ -67,24 +67,31 @@
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">Course Management</button>
+		  <button class="dropbtn">Course Admin</button>
 		  <div class="dropdown-content">
 		    <a href="#">Create</a>
 		    <a href="#">View</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">Block Management</button>
+		  <button class="dropbtn">Entry Admin</button>
 		  <div class="dropdown-content">
-		    <a href="#">Create</a>
-		    <a href="#">View</a>
+		    <a href="/admin/add_entry">New Entry</a>
+		    <a href="/admin/entry_list">View Entries</a>
 		  </div>
 		</div>
 		<div class="dropdown">
-		  <button class="dropbtn">Entry Management</button>
+		  <button class="dropbtn">Block Admin</button>
 		  <div class="dropdown-content">
-		    <a href="#">Create</a>
-		    <a href="#">View</a>
+		    <a href="/admin/add_block">New Block</a>
+		    <a href="/admin/block_list">View Blocks</a>
+		  </div>
+		</div>
+		<div class="dropdown">
+		  <button class="dropbtn">Section Admin</button>
+		  <div class="dropdown-content">
+		    <a href="/admin/add_section">New Section</a>
+		    <a href="/admin/section_list">View Sections</a>
 		  </div>
 		</div>
 		<div class="dropdown">

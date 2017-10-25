@@ -2,6 +2,7 @@ package org.unitedpro.mumsched.controller;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -117,12 +118,12 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
         System.out.println("-------->Home screen");
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         student = studentService.findStudentByEmail(userDetails.getUsername());
         model.addAttribute("studentId",student.getStudent_id());
         return "home";
-    }
+    }*/
 }
