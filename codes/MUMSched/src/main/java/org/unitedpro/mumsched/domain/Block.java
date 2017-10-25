@@ -43,12 +43,12 @@ public class Block {
     private Entry entry;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
+    //@Temporal(TemporalType.DATE)
+    private String startDate;
 
     @Column
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+    //@Temporal(TemporalType.DATE)
+    private String endDate;
 
     //public Block(String name, Date sDate, Date eDate, )
 	public long getBlock_id() {
@@ -74,19 +74,19 @@ public class Block {
 		this.entry = entry;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

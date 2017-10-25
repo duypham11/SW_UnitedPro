@@ -43,8 +43,10 @@ public class BlockAdminController {
 		ModelAndView model = new ModelAndView("admin/blockform");
 		Block block = blockService.getBlockById(id);
 		
-		Entry entry = block.getEntry();
-		model.addObject("entryList", entry);
+		List<Entry> entryList = entryService.getEntryList();
+		model.addObject("entryList", entryList);
+		//Entry entry = block.getEntry();
+		//model.addObject("entryList", entry);
 		return model.addObject("blockForm", block);// new ModelAndView("redirect:/admin/add_block");
 	}
 	
@@ -72,22 +74,11 @@ public class BlockAdminController {
 	@RequestMapping(value="/save_block", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entry") @Valid Entry entry, BindingResult bindingResultEntry,
 			@ModelAttribute("blockForm") @Valid Block block, BindingResult bindingResultBlock) {
-/*			@ModelAttribute("block_id") Long blockID,
-			@ModelAttribute("blockName") String blockName,
-			@ModelAttribute("startDate") String startDate,
-			@ModelAttribute("blockName") String endDate) {*/
 		System.out.println("======save==block=" );
-//		ModelAndView model = new ModelAndView("admin/blockform");
-//		Entry entry = (Entry) model.getModel().get("entry");
-		//Block block = new Block();
-				//(Block) model.get("blockForm");
-		//block.setBlockName(model.get("blockName"));
-		//block.setEntry(entry);
 		
 		System.out.println("======save==block=2222==" +entry.getEntryName() + "=====" + block.getBlockName()
 		+ "  " + block.getEntry().getEntryName());
-		//model.get("entryName", entry);
-		//block.setEntry(entry);
+
 		blockService.save(block);		
 		return new ModelAndView("redirect:/admin/block_list");
 	}	
