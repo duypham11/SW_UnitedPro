@@ -15,6 +15,16 @@ public class StudentSectionServiceImpl implements IStudentSectionService {
 	public void save(Student_Section studentsection){
 		studentSectionDAO.save(studentsection);
 	}
+
+	public Iterable<Student_Section> findAll(){
+		return studentSectionDAO.findAll();
+	}
+
+	@Override
+	public long findBySs_idExists() {
+		return studentSectionDAO.findBySs_idExists();
+	}
+
 	@Override
 	public boolean delete(Student_Section studentsection){
 		studentSectionDAO.delete(studentsection);

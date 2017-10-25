@@ -60,6 +60,7 @@ public class StudentController {
 
     @RequestMapping(value = "/registersection", method = RequestMethod.GET)
     public String registersection(Model model){
+        model.addAttribute("sections",sectionService.getAllSection());
         model.addAttribute("studentId",student.getStudent_id());
         return "registersection";
     }
@@ -73,12 +74,15 @@ public class StudentController {
         student_section.setStudent(student);
         student_section.setSection(section);
         student_section.setApproved(false);
-        student.addStudentSection(student_section);
-        section.addStudentSection(student_section);
+//        student.addStudentSection(student_section);
+//        section.addStudentSection(student_section);
 
-        studentService.updateStudent(student);
-        sectionService.update(section);
+//        studentService.updateStudent(student);
+//        sectionService.update(section);
 
+
+        long idExists = studentSectionService.findBySs_idExists();
+        student_section.setSs_id(idExists+1);
         studentSectionService.save(student_section);
 
         String message = "You have register the Section: " + section.getSectionName() +
