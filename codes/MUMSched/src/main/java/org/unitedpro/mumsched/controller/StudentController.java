@@ -2,11 +2,9 @@ package org.unitedpro.mumsched.controller;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.unitedpro.mumsched.domain.Section;
@@ -31,7 +29,7 @@ public class StudentController {
     @Autowired
     private IStudentSectionService studentSectionService;
 
-    private Student student;
+    private static Student student;
 
     private Section section;
 
@@ -60,18 +58,17 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/registersection", method = RequestMethod.GET)
-    public String registersection(@PathVariable("studentId") long studentId, Model model){
-        model.addAttribute("studentId",studentId);
+    @RequestMapping(value = "/registersection", method = RequestMethod.GET)
+    public String registersection(Model model){
+        model.addAttribute("studentId",student.getStudent_id());
         return "registersection";
     }
 
-    @RequestMapping(value = "/{studentId}/register",method = RequestMethod.POST)
-    public String register(@PathVariable("studentId") long studentId, HttpServletRequest request, Model model){
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String register(HttpServletRequest request, Model model){
+
         long sectionId = Long.parseLong(request.getParameter("sectionId"));
         section = sectionService.getSectionById(sectionId);
-        student = studentService.getStudentById(studentId);
-
         student_section = new Student_Section();
         student_section.setStudent(student);
         student_section.setSection(section);
@@ -90,17 +87,15 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.GET)
-    public String editstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        model.addAttribute("studentId",studentId);
-        student = studentService.getStudentById(studentId);
+    @RequestMapping(value = "/editstudent",method = RequestMethod.GET)
+    public String editstudent(Model model){
+        model.addAttribute("studentId",student.getStudent_id());
         model.addAttribute("student",student);
         return "editstudent";
     }
 
-    @RequestMapping(value = "/{studentId}/editstudent",method = RequestMethod.POST)
-    public String editedstudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        student = studentService.getStudentById(studentId);
+    @RequestMapping(value = "/editstudent",method = RequestMethod.POST)
+    public String editedstudent(HttpServletRequest request,Model model){
         studentService.saveStudent(student,request);
         studentService.updateStudent(student);
 
@@ -109,21 +104,19 @@ public class StudentController {
         return "success";
     }
 
-    @RequestMapping(value = "/{studentId}/deletestudent",method = RequestMethod.GET)
-    public String deletestudent(@PathVariable("studentId") long studentId, HttpServletRequest request,Model model){
-        studentService.deleteStudentById(studentId);
-        String message = "The student with ID " + studentId + " is deleted";
+    @RequestMapping(value = "/deletestudent",method = RequestMethod.GET)
+    public String deletestudent(Model model){
+        studentService.deleteStudentById(student.getStudent_id());
+        String message = "The student with ID " + student.getStudent_id() + " is deleted";
         model.addAttribute("message",message);
         return "success";
     }
 
 
-/*    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getstudent(HttpServletRequest request, Authentication authentication, Model model){
-        System.out.println("-------->Home screen");
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         student = studentService.findStudentByEmail(userDetails.getUsername());
-        model.addAttribute("studentId",student.getStudent_id());
         return "home";
-    }*/
+    }
 }
