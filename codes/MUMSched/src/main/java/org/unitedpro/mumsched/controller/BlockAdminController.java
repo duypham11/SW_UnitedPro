@@ -38,11 +38,9 @@ public class BlockAdminController {
 	public ModelAndView update(@PathVariable("id") long id) {
 		System.out.println("======update==block=" );
 		ModelAndView model = new ModelAndView("admin/blockform");
-		Block block = blockService.getBlockById(id);
-		
+		Block block = blockService.getBlockById(id);		
 		List<Entry> entryList = entryService.getEntryList();
 		model.addObject("entryList", entryList);
-
 		return model.addObject("blockForm", block);// new ModelAndView("redirect:/admin/add_block");
 	}
 	
