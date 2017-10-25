@@ -1,14 +1,11 @@
 package org.unitedpro.mumsched.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,8 +42,7 @@ public class BlockAdminController {
 		
 		List<Entry> entryList = entryService.getEntryList();
 		model.addObject("entryList", entryList);
-		//Entry entry = block.getEntry();
-		//model.addObject("entryList", entry);
+
 		return model.addObject("blockForm", block);// new ModelAndView("redirect:/admin/add_block");
 	}
 	
@@ -74,10 +70,6 @@ public class BlockAdminController {
 	@RequestMapping(value="/save_block", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entry") @Valid Entry entry, BindingResult bindingResultEntry,
 			@ModelAttribute("blockForm") @Valid Block block, BindingResult bindingResultBlock) {
-		System.out.println("======save==block=" );
-		
-		System.out.println("======save==block=2222==" +entry.getEntryName() + "=====" + block.getBlockName()
-		+ "  " + block.getEntry().getEntryName());
 
 		blockService.save(block);		
 		return new ModelAndView("redirect:/admin/block_list");
