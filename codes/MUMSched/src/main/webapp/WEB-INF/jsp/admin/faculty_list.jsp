@@ -31,7 +31,8 @@
 		<td>${faculty.lastName} </td>
 		<td>${faculty.DOB} </td>
 		<td>${faculty.email} </td>
-		<td>${faculty.password} </td>
+		<%-- <td>${faculty.password} </td> --%>
+		<td><input type="password" value="${faculty.password}"></td>
 
  		<td>
 			<spring:url value="/admin/update_faculty/${faculty.faculty_id}" var="updateFacultyURL" />

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Course;
-import org.unitedpro.mumsched.domain.Faculty;
+import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.service.ICourseService;
-import org.unitedpro.mumsched.service.IFacultyService;
+import org.unitedpro.mumsched.service.IEntryService;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -20,7 +20,7 @@ public class CourseAdminController {
 	@Autowired
 	private ICourseService courseService;
 	@Autowired
-	private IFacultyService facultyService;
+	private IEntryService entryService;
 
 	@RequestMapping(value = "/course_list", method = RequestMethod.GET)
 	public ModelAndView list() {
@@ -35,10 +35,7 @@ public class CourseAdminController {
 		System.out.println("======update==course=");
 		ModelAndView model = new ModelAndView("admin/courseform");
 		Course course = courseService.getCourseById(id);
-		//List<Faculty> facultyList = facultyService.getFacultyList();
-		//model.addObject("facultyList", facultyList);
-		model.addObject("courseForm", course);
-		return model;
+		return model.addObject("courseForm", course);
 	}
 
 	@RequestMapping(value = "/delete_course/{id}", method = RequestMethod.GET)
@@ -54,8 +51,6 @@ public class CourseAdminController {
 		System.out.println("======add=course==");
 		ModelAndView model = new ModelAndView("admin/courseform");
 		Course course = new Course();
-		//List<Faculty> facultyList = facultyService.getFacultyList();
-		//model.addObject("facultyList", facultyList);
 		model.addObject("courseForm", course);
 		return model;
 	}

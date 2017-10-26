@@ -31,7 +31,8 @@
 		<td>${student.lastName} </td>
 		<td>${student.DOB} </td>
 		<td>${student.email} </td>
-		<td>${student.password} </td>
+		<%-- <td>${student.password} </td> --%>
+		<td><input type="password" value="${student.password}"></td>
 
  		<td>
 			<spring:url value="/admin/update_student/${student.student_id}" var="updateStudentURL" />
