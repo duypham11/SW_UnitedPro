@@ -27,7 +27,7 @@
 		</tr>
 		<tr>
 			<td>Date of Birth: </td>
-			<td><form:input path="DOB"/>
+			<td><form:input type="date" path="DOB"/>
 		</tr>
 		<tr>
 			<td>Email: </td>
