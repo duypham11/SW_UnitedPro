@@ -23,12 +23,12 @@
 
 			<table class="table table-striped">
 				<tr>
-					<td><label> User Name : <input type="text"
+					<td width=100><label> User Name: <input type="text"
 							name="username" />
 					</label></td>
 				</tr>
 				<tr>
-					<td><label> Password : <input type="password"
+					<td width=100><label> Password:  <input type="password"
 							name="password" />
 					</label></td>
 				</tr>
