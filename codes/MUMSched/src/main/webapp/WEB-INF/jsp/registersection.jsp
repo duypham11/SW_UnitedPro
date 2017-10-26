@@ -15,7 +15,7 @@
     <input type="submit" value="Submit">
 </form>
 
-<table width = 100% border="1">
+<table width = 100% border="1"> List of available Section
     <tr>
         <td><c:out value="Section ID" /></td>
         <td><c:out value="Section Name" /></td>
@@ -26,8 +26,8 @@
         <tr>
             <td ><c:out value="${section.section_id}" /></td>
             <td><c:out value="${section.sectionName}" /></td>
-            <td><c:out value="${section.course}" /></td>
-            <td><c:out value="${section.block}" /></td>
+            <td><c:out value="${section.course.courseName}" /></td>
+            <td><c:out value="${section.block.blockName}" /></td>
         </tr>
 
     </c:forEach>

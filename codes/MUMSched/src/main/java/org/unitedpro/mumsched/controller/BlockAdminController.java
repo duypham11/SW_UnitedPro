@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -25,6 +26,7 @@ public class BlockAdminController {
 	private IBlockService blockService;
 	@Autowired
 	private IEntryService entryService;
+	
 	
 	@RequestMapping(value="/block_list", method = RequestMethod.GET)
 	public ModelAndView list() {		
@@ -67,7 +69,6 @@ public class BlockAdminController {
 		System.out.println("======add=block==" );
 		ModelAndView model = new ModelAndView("admin/blockform");
 		Block block = new Block();
-
 		List<Entry> entryList = entryService.getEntryList();
 		model.addObject("entryList", entryList);
 		model.addObject("blockForm", block);
@@ -78,7 +79,14 @@ public class BlockAdminController {
 	@RequestMapping(value="/save_block", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("entry") @Valid Entry entry, BindingResult bindingResultEntry,
 			@ModelAttribute("blockForm") @Valid Block block, BindingResult bindingResultBlock) {
-
+		System.out.println("======save=block==" );
+		Block orgBlock = blockService.getBlockById(block.getBlock_id());
+		if (orgBlock != null) {
+			List<Section> sections = new ArrayList();
+			sections = orgBlock.getSections();
+			if(sections!= null && sections.size()>0)
+				block.addSections(sections);
+		}
 		blockService.save(block);		
 		return new ModelAndView("redirect:/admin/block_list");
 	}	

@@ -46,7 +46,7 @@ public class SectionAdminController {
 	@RequestMapping(value="/update_section/{id}", method = RequestMethod.GET)
 	public ModelAndView update(@PathVariable("id") long id) {
 		System.out.println("======update==section=" );
-		ModelAndView model = new ModelAndView("admin/sectionform");
+		ModelAndView model = new ModelAndView("admin/sectionupdateform");
 		Section section = sectionService.getSectionById(id);
 		List<Block> blockList = blockService.getBlockList();
 		model.addObject("blockList", blockList);
@@ -60,6 +60,8 @@ public class SectionAdminController {
 	public ModelAndView delete(@PathVariable("id") long id) {
 		Section section = sectionService.getSectionById(id);
 		System.out.println("======delete==section=" + section.getSection_id());
+		Block block = section.getBlock();
+		block.delete(section);
 		sectionService.delete(section);
 		return new ModelAndView("redirect:/admin/section_list");
 	}	
@@ -82,9 +84,21 @@ public class SectionAdminController {
 	@RequestMapping(value="/save_section", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("block") @Valid Block block, BindingResult bindingResultBlock,
 				@ModelAttribute("sectionForm") @Valid Section section, BindingResult bindingResultSection) {
-		System.out.println("======save==section=" );
-		sectionService.save(section);		
+		System.out.println("======save==section=" );		
+		sectionService.save(section);
+		block.addSection(section);
+		blockService.update(block);
 		return new ModelAndView("redirect:/admin/section_list");
 	}	
+	
+	
+	
+	@RequestMapping(value="/update_section", method = RequestMethod.POST)
+	public ModelAndView update(@ModelAttribute("block") @Valid Block block, BindingResult bindingResultBlock,
+				@ModelAttribute("sectionForm") @Valid Section section, BindingResult bindingResultSection) {
+		System.out.println("======save==section=" );		
+		sectionService.save(section);
+		return new ModelAndView("redirect:/admin/section_list");
+	}
 }
 

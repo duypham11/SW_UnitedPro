@@ -1,6 +1,9 @@
 package org.unitedpro.mumsched.service;
 
+import java.util.List;
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.unitedpro.mumsched.domain.Course;
 import org.unitedpro.mumsched.domain.Student;
 
 /**
@@ -22,4 +25,10 @@ public interface IStudentService {
     void saveStudent(Student student, HttpServletRequest request);
 
     Student findStudentByEmail(String email);
+    
+    List<Student> getStudentList();
+    
+    void save(Student student);
+    
+    boolean delete(Student student);
 }
