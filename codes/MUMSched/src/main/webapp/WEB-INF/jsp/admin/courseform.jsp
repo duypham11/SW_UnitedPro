@@ -30,16 +30,6 @@
 			<td>Course Description: </td>
 			<td><form:input path="courseDescription"/>
 		</tr>		
-
-		<%-- <tr>
-			<td>Faculty: </td> 
- 			<td>
-			<form:select path="faculty" modelAttribute ="faculty">
-			<form:option value="0 "> --SELECT--</form:option>
-			<form:options items="${facultyList}" itemValue="faculty_id" itemLabel="facultyName"/>
-			</form:select>
-			</td>	
-		</tr> --%>
 		<tr>
 			<td> </td>
 			<td><button type="submit">Save</button>

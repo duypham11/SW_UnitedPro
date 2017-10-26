@@ -31,8 +31,6 @@ public class CourseAdminController {
 		System.out.println("======update==course=");
 		ModelAndView model = new ModelAndView("admin/courseform");
 		Course course = courseService.getCourseById(id);
-		//List<Faculty> facultyList = facultyService.getFacultyList();
-		//model.addObject("facultyList", facultyList);
 		model.addObject("courseForm", course);
 		return model;
 	}

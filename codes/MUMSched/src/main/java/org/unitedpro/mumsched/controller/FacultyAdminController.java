@@ -31,8 +31,6 @@ public class FacultyAdminController {
 		System.out.println("======update==faculty=");
 		ModelAndView model = new ModelAndView("admin/facultyform");
 		Faculty faculty = facultyService.getFacultyById(id);
-		//List<Faculty> facultyList = facultyService.getFacultyList();
-		//model.addObject("facultyList", facultyList);
 		model.addObject("facultyForm", faculty);
 		return model;
 	}
@@ -50,8 +48,6 @@ public class FacultyAdminController {
 		System.out.println("======add=faculty==");
 		ModelAndView model = new ModelAndView("admin/facultyform");
 		Faculty faculty = new Faculty();
-		//List<Faculty> facultyList = facultyService.getFacultyList();
-		//model.addObject("facultyList", facultyList);
 		model.addObject("facultyForm", faculty);
 		return model;
 	}
