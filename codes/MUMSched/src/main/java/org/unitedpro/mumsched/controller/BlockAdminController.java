@@ -82,7 +82,7 @@ public class BlockAdminController {
 		System.out.println("======save=block==" );
 		Block orgBlock = blockService.getBlockById(block.getBlock_id());
 		if (orgBlock != null) {
-			List<Section> sections = new ArrayList();
+			List<Section> sections = new ArrayList<Section>();
 			sections = orgBlock.getSections();
 			if(sections!= null && sections.size()>0)
 				block.addSections(sections);

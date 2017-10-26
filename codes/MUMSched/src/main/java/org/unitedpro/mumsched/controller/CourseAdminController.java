@@ -10,18 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Course;
-import org.unitedpro.mumsched.domain.Faculty;
 import org.unitedpro.mumsched.service.ICourseService;
-import org.unitedpro.mumsched.service.IFacultyService;
 
 @Controller
 @RequestMapping(value = "/admin")
 public class CourseAdminController {
 	@Autowired
 	private ICourseService courseService;
-	@Autowired
-	private IFacultyService facultyService;
-
+	
 	@RequestMapping(value = "/course_list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView model = new ModelAndView("admin/course_list");

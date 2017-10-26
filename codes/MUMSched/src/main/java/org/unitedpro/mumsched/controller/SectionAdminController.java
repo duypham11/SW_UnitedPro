@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,10 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Section;
 import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Course;
-import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.service.IBlockService;
 import org.unitedpro.mumsched.service.ICourseService;
-import org.unitedpro.mumsched.service.IEntryService;
 import org.unitedpro.mumsched.service.ISectionService;
 
 @Controller
@@ -27,8 +24,6 @@ import org.unitedpro.mumsched.service.ISectionService;
 public class SectionAdminController {
 	@Autowired
 	private IBlockService blockService;
-	@Autowired
-	private IEntryService entryService;	
 	@Autowired
 	private ISectionService sectionService;
 	@Autowired
