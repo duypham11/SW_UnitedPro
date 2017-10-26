@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Set;
 
 
+@SuppressWarnings("serial")
 public class UserDetailsImpl implements UserDetails {
 
     private Collection<GrantedAuthority> authorities;

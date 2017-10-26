@@ -6,9 +6,7 @@ import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.CourseDAO;
-import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Course;
-import org.unitedpro.mumsched.domain.Faculty;
 
 @Service
 public class CourseServiceImpl implements ICourseService {
@@ -47,12 +45,10 @@ public class CourseServiceImpl implements ICourseService {
 		courseDAO.save(course);
 		return true;
 	}
-
 	@Override
 	public List<Course> getCourseList() {
 		return courseDAO.getCourseList();
 	}
-
 	@Override
 	public void saveCourse(Course course, HttpServletRequest request) {
 		course.setCourse_id(Integer.parseInt(request.getParameter("courseId")));

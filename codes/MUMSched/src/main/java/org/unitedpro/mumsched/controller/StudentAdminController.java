@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.unitedpro.mumsched.domain.Student;
-import org.unitedpro.mumsched.domain.Faculty;
 import org.unitedpro.mumsched.service.IStudentService;
-import org.unitedpro.mumsched.service.IFacultyService;
 
 @Controller
 @RequestMapping(value = "/admin")

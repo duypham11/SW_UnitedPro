@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.SectionDAO;
-import org.unitedpro.mumsched.domain.Block;
 import org.unitedpro.mumsched.domain.Section;
 @Service
 public class SectionServiceImpl implements ISectionService {

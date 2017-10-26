@@ -6,7 +6,6 @@ import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.FacultyDAO;
-import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.domain.Faculty;
 @Service
 public class FacultyServiceImpl implements IFacultyService {

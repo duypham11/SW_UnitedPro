@@ -6,8 +6,6 @@ import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unitedpro.mumsched.dao.StudentDAO;
-import org.unitedpro.mumsched.domain.Course;
-import org.unitedpro.mumsched.domain.Faculty;
 import org.unitedpro.mumsched.domain.Student;
 
 /**

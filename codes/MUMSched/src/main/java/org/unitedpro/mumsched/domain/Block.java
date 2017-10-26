@@ -1,5 +1,6 @@
 package org.unitedpro.mumsched.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -89,5 +90,18 @@ public class Block {
 
 	public List<Section> getSections() {
 		return sections;
+	}
+	public void addSection(Section section) {
+		if (sections==null)
+			sections = new ArrayList<Section>();
+		sections.add(section);
+	}
+	public boolean delete(Section section) {
+		return sections.remove(section);
+	}
+	public boolean addSections(List<Section> sections) {
+		if (this.sections==null)
+			this.sections = new ArrayList<Section>();
+		return this.sections.addAll(sections);
 	}
 }

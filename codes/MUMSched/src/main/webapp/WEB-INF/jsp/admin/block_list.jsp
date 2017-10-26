@@ -16,7 +16,7 @@
 
 <spring:url value="/admin/add_block" var="addBlockURL"/>
 <a href="${addBlockURL}">Add New Block</a>
-
+	
 <table width = 100% border="1">
 	<tr>
 		<td>Block Name: </td>
@@ -24,7 +24,7 @@
 		<td>End Date: </td>
 		<td>Entry: </td>
 		<td>Number Sections: </td>
-
+		<td>Sections: </td>
 		<td colspan="2">Action</td>
 	</tr>
 	<c:forEach items="${block_list}" var="block">
@@ -34,6 +34,17 @@
 		<td>${block.endDate} </td>
 		<td>${block.entry.entryName}</td>
 		<td>${fn:length(block.sections)}</td>
+		<td>
+		<%! 
+			String sections ="";
+		%>
+		<form:hidden>
+		    <c:forEach items="${block.sections}" var="section"> 
+		       ${section.sectionName}; 
+    		</c:forEach>
+		</form:hidden>
+		</td>
+		
  		<td>
 			<spring:url value="/admin/update_block/${block.block_id}" var="updateBlockURL" />
 			<a href="${updateBlockURL}">Update</a>

@@ -9,18 +9,18 @@
 <title>Section Management</title>
 </head>
 <body>
-<spring:url value="/admin/save_section" var="saveSectionURL"/>
+<spring:url value="/admin/update_section" var="updateSectionURL"/>
 
 
 <%@ include file="../fragment/header.html"  %>
 
-<form:form action="${saveSectionURL}" method="POST" modelAttribute ="sectionForm">
+<form:form action="${updateSectionURL}" method="POST" modelAttribute ="sectionForm">
 	<form:hidden path = "section_id"/>
 	<table>
 			<tr>
 			<td>Course: </td> 
  			<td>
-			<form:select path="course" modelAttribute ="course">
+			<form:select path="course" modelAttribute ="course" >
 			<form:option value="0 "> --SELECT--</form:option>
 			<form:options items="${courseList}" itemValue="course_id" itemLabel="courseName"/>
 			</form:select>
@@ -41,11 +41,10 @@
 		<tr>
 			<td>Block: </td> 
  			<td>
-			<form:select path="block" modelAttribute ="block">
-			<form:option value="0 "> --SELECT--</form:option>
+ 			<form:select disabled="disabled" path="block" modelAttribute ="block">
 			<form:options items="${blockList}" itemValue="block_id" itemLabel="blockName"/>
 			</form:select>
-			</td>	
+ 			</td>
 		</tr>
 		<tr>
 			<td> </td>

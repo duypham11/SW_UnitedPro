@@ -3,7 +3,6 @@ package org.unitedpro.mumsched.service;
 import java.util.List;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
-import org.unitedpro.mumsched.domain.Entry;
 import org.unitedpro.mumsched.domain.Faculty;
 
 /**

@@ -2,6 +2,7 @@ package org.unitedpro.mumsched.service;
 
 import java.util.List;
 
+
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.unitedpro.mumsched.domain.Course;
 
@@ -21,7 +22,7 @@ public interface ICourseService {
 
 	Iterable<Course> getAllCourse();
 
+    List<Course> getCourseList();
+    
 	void saveCourse(Course course, HttpServletRequest request);
-	
-	List<Course> getCourseList();
 }
